@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import "../../sass/NavMenu.sass"
+
 import logo from "../../img/logo.png"
 
 export default function NavMenu() {
