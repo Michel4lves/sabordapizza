@@ -1,0 +1,16 @@
+@use "../../mixins"
+@use "../../variables"
+
+.promotion-card
+    position: relative
+    width: 24%
+    height: 300px
+    @include mixins.flex-center
+    flex-direction: column
+    gap: 10px
+
+    img
+        width: 200px
+
+    .title, .text1, .text2, .price
+        color: variables.$text-color

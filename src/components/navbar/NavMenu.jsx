@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import "../../sass/NavMenu.sass"
+import "../../sass/components/navbar/NavBar.sass"
+import "../../sass/components/navbar/NavMenu.sass"
 
 import logo from "../../img/logo.png"
 
-import "../../sass/NavBar.sass"
 
 export default function NavMenu() {
     
@@ -22,14 +22,14 @@ useEffect(() => {
     if (title === "saborDaPizza") {
         saborDaPizza.scrollIntoView({ behavior: "smooth" })
     }else if (title === "promocoes") {
-        promocoes.scrollIntoView({ behavior: "smooth" })
+        promocoes.scrollIntoView({ behavior: "smooth", padding: "130px" })
     }
 }, [location.pathname, title])
 
 
     return (
         <nav>
-            <Link to="/" onClick={() => handleTitle("null")}>
+            <Link to="/" onClick={() => handleTitle("null")} className="logo">
                 <img src={logo} alt="logo" />
             </Link>
             <ul>
@@ -37,10 +37,10 @@ useEffect(() => {
                     <Link to="/" onClick={() => handleTitle("null")}>Home</Link>
                 </li>
                 <li>
-                    <Link to="/#saborDaPizza" onClick={() => handleTitle("saborDaPizza")}>Sabor da pizza</Link>
+                    <Link to="/#promocoes" onClick={() => handleTitle("promocoes")}>Promoções</Link>
                 </li>
                 <li>
-                    <Link to="/#promocoes" onClick={() => handleTitle("promocoes")}>Promoções</Link>
+                    <Link to="/#saborDaPizza" onClick={() => handleTitle("saborDaPizza")}>Sabor da pizza</Link>
                 </li>
                 <li>
                     <Link to="/cardapio" onClick={() => handleTitle("null")}>Cardápio</Link>

@@ -1,3 +1,3 @@
-export default function Container({ children }) {
-    return <div className="container">{children}</div>
+export default function Container({ customClass, children }) {
+    return <div className={`${"container"} ${customClass}`}>{children}</div>
 }
