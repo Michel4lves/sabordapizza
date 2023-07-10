@@ -28,7 +28,7 @@ useEffect(() => {
 
 
     return (
-        <nav>
+        <nav className="navbar">
             <Link to="/" onClick={() => handleTitle("null")} className="logo">
                 <img src={logo} alt="logo" />
             </Link>

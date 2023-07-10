@@ -1,0 +1,14 @@
+@use "../variables"
+@use "../mixins"
+
+.menu-title
+    padding-top: 50px
+    margin-left: 50px
+    margin-bottom: 30px
+    color: variables.$title-color
+
+.pizza-menu
+    @include mixins.flex-center
+    justify-content: space-around
+    flex-wrap: wrap
+    row-gap: 30px

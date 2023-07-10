@@ -1,4 +1,4 @@
-import "../sass/home.sass"
+import "../sass/pages/home.sass"
 
 import banner from "../img/banner.jpg"
 import Container from "../components/container/Container"
@@ -8,6 +8,7 @@ import pizzaTwo from "../img/pizza-two.png"
 import pizzafamilySoda from "../img/pizzas-family-soda.png"
 import pizzafamily from "../img/pizzas-family.png"
 import pizzaBig from "../img/pizzas-big.png"
+import saborDaPizza from "../img/sabor-da-pizza.jpg"
 
 export default function Home() {
     return (
@@ -48,11 +49,21 @@ export default function Home() {
                             price="R$ 49,90**"
                         />
                     </div>
-                    <p className="obs">* Taxa de entrega não inclusa; Promoções não cumulativas; Sabores Tradicionais </p>
+                    <p className="obs">* Taxa de entrega não inclusa; Promoções não cumulativas; Sabores tradicionais </p>
                     <p className="obs">**Sabores Premium, Doces e Bordas não Inclusos </p>
                 </section>
-                <section className="sabor-da-pizza">
+                <section className="about">
                     <h1 id="saborDaPizza">Sabor da Pizza</h1>
+                    <div className="sabor-da-pizza">
+                        <p className="presentation-text">
+                            Bem-vindos ao Sabor da Pizza, onde a excelência e a paixão pela pizza se encontram! <br/> <br/>
+                            Somos uma pizzaria que tem como compromisso oferecer a você uma experiência gastronômica única, com sabores irresistíveis e ingredientes cuidadosamente selecionados. <br/> <br/>
+                            Nossa missão é levar até você as melhores pizzas da cidade, garantindo qualidade excepcional em cada fatia. Para isso, nossa massa é feita artesanalmente na hora, resultando em uma textura perfeita que derrete na boca. Utilizamos temperos naturais, provenientes de ingredientes frescos e de alta qualidade, para realçar o sabor de cada pizza. <br/> <br/>
+                            Queremos que você desfrute de uma refeição quentinha e saborosa no conforto da sua casa. Nossa equipe de entregadores está pronta para levar a melhor pizza da cidade diretamente até você. <br/> <br/>
+                            Conte conosco para tornar seus momentos especiais ainda mais memoráveis, seja em um jantar em família, uma comemoração com amigos ou até mesmo em um momento de relaxamento e indulgência pessoal.
+                        </p>
+                        <img src={saborDaPizza} alt="sabor_da_pizza.jpg" className="sabor-da-pizza-img" />
+                    </div>
                 </section>
             </Container>
         </div>
