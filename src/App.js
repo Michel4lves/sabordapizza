@@ -6,6 +6,7 @@ import Delivery from "./pages/Delivery";
 import Contato from "./pages/Contato";
 import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
+import Footer from "./components/Footer/Footer";
 
 
 export default function App() {
@@ -23,6 +24,9 @@ export default function App() {
                         <Route path='contato' element={<Contato />} />
                     </Routes>
                 </Container>
+                <footer className="footer">
+                    <Footer />
+                </footer>
                 </BrowserRouter>
         </div>
     );

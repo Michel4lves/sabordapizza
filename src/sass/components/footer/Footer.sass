@@ -1,0 +1,62 @@
+@use "../../variables"
+@use "../../mixins"
+
+.footer-box
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    width: 1200px
+    color: variables.$secondary-color
+
+    .footer-column-1
+        width: 200px
+        height: 250px
+        border-right: dotted
+        margin-top: -20px
+
+        h3
+            font-size: 1.2em
+
+        p
+            margin-top: 20px
+            font-size: 1em
+
+            span
+                font-size: 1.4em
+
+    .footer-column-2
+        @extend .footer-column-1
+        @include mixins.flex-center
+        justify-content: space-between
+        flex-direction: column
+        width: 350px
+
+        .servive
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            width: 190px
+
+            p
+                line-height: 25px
+
+        .payment-form
+            @extend .servive
+
+            img
+                padding: 20px 0 10px 10px
+
+    .footer-column-3
+        @extend .footer-column-1
+        width: 650px
+        border: none
+        padding-left: 50px
+
+        .location-map
+            margin-top: 20px
+            width: 600px
+            height: 150px
+            border: 1px solid blue
+
+
+

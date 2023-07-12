@@ -81,16 +81,36 @@ export default function Cardapio() {
                         pizzaDescription="Tiras de salmão com catupiry"
                         price="R$ 64,00"
                     />
-                    
-
-
-
-
-
-
-
-
-
+                    <PizzaCard
+                        image={pizza10}
+                        pizzaName="Pizza Campestre"
+                        pizzaDescription="Presunto, pimentão roxo ou verde, cogumelos e azeitonas pretas"
+                        price="R$ 42,00"
+                    />
+                    <PizzaCard
+                        image={pizza11}
+                        pizzaName="Pizza Salame"
+                        pizzaDescription="Salame, cebola, tomate e azeitonas pretas"
+                        price="R$ 37,00"
+                    />
+                    <PizzaCard
+                        image={pizza12}
+                        pizzaName="Pizza Frango Tropical "
+                        pizzaDescription="Pedaços de peito de frango, tomate, cogumelos e manjericão"
+                        price="R$ 44,50"
+                    />
+                    <PizzaCard
+                        image={pizza13}
+                        pizzaName="Pizza Havaiana"
+                        pizzaDescription="Presunto e abacaxi"
+                        price="R$ 33,50"
+                    />
+                    <PizzaCard
+                        image={pizza14}
+                        pizzaName="Pizza Pepperoni"
+                        pizzaDescription="Pepperoni com um toque de manjericão"
+                        price="R$ 48,50"
+                    />
                 </section>
             </Container>
         </div>
