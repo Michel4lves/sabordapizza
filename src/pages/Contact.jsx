@@ -1,4 +1,5 @@
 import Container from "../components/container/Container";
+import ContactForm from "../components/forms/ContactForm";
 
 import logoGray from "../img/logo-gray.png"
 
@@ -18,7 +19,11 @@ export default function Contact() {
                     </div>
                     <span className="bar"></span>
                     <div className="contact-form">
-                        <p>FORM</p>
+                        <p>
+                            Queremos saber sua Opinião!<br/>
+                            Envie suas Dúvidas, Críticas e Sugestões.
+                        </p>
+                        <ContactForm />
                     </div>
                 </div>
             </Container>
