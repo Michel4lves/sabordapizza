@@ -6,8 +6,8 @@ import "../sass/pages/Delivery.sass"
 export default function Delivery() {
     return (
         <div>
+            <DeliveryCard />
             <Container customClass="center-container">
-                <h1 className="delivery-title">Peça já a sua pizza!</h1>
                 <h3 className="sizes">Escolha um tamanho de acordo com a sua fome:</h3>
                 <div className="sizes-box">
                     <div className="size-card">
@@ -39,7 +39,6 @@ export default function Delivery() {
                         </div>
                     </div>
                 </div>
-                <DeliveryCard />
             </Container>
         </div>
     )

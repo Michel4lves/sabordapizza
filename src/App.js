@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Cardapio from "./pages/Cardapio";
 import Delivery from "./pages/Delivery";
-import Contato from "./pages/Contato";
+import Contact from "./pages/Contact";
 import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
@@ -21,7 +21,7 @@ export default function App() {
                         <Route path='/' element={<Home />} />
                         <Route path='cardapio' element={<Cardapio />} />
                         <Route path='delivery' element={<Delivery />} />
-                        <Route path='contato' element={<Contato />} />
+                        <Route path='contact' element={<Contact />} />
                     </Routes>
                 </Container>
                 <footer className="footer">

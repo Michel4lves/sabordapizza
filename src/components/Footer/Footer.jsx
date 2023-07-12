@@ -1,5 +1,7 @@
 import Payment from "../../img/payment.png"
 
+import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter } from "react-icons/bi";
+
 import "../../sass/components/footer/Footer.sass"
 
 const Footer = () => {
@@ -30,7 +32,9 @@ const Footer = () => {
                 </div>
             </div>
             <div className="social-media">
-
+                <BiLogoFacebook />
+                <BiLogoInstagram />
+                <BiLogoTwitter />
             </div>
         </>
     )

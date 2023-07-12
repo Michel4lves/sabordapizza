@@ -49,7 +49,7 @@ useEffect(() => {
                     <Link to="/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
                 </li>
                 <li>
-                    <Link to="/contato" onClick={() => handleTitle("null")}>Contato</Link>
+                    <Link to="/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>
