@@ -1,10 +1,12 @@
 @use "variables"
 @use "mixins"
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@400;700&display=swap')
 
 *
     margin: 0
     padding: 0
     box-size: border-box
+    font-family: 'Quattrocento Sans', sans-serif
 
 html
     scroll-behavior: smooth
@@ -12,6 +14,8 @@ html
 body
     background-color: variables.$secondary-color
     color: variables.$text-color
+    overflow-x: hidden
+    user-select: none
 
     .header
         position: fixed

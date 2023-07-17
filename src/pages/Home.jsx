@@ -1,6 +1,7 @@
 import "../sass/pages/home.sass"
 
 import banner from "../img/banner.jpg"
+import marquee from "../img/marquee.png"
 import Container from "../components/container/Container"
 import PromotionCard from "../components/cards/PromotionCard"
 
@@ -15,6 +16,7 @@ export default function Home() {
         <div>
             <main className="banner">
                 <img src={banner} alt="banmner.jpg" className="banner-img" />
+                <img src={marquee} alt="marquee.jpg" className="marquee-img" />
             </main>
             <Container customClass="center-container-home">
                 <section className="promotions">

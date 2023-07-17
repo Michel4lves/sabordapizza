@@ -1,8 +1,12 @@
 import Payment from "../../img/payment.png"
+import GeolocationMap from "../../config/GeolocationMap"
+
 
 import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter } from "react-icons/bi";
 
 import "../../sass/components/footer/Footer.sass"
+import 'leaflet/dist/leaflet.css';
+
 
 const Footer = () => {
     return (
@@ -27,8 +31,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-column-3">
                     <h3>Localização:</h3>
-                    <p>Av. Principal, 888 - Centro, Cidade Grande - RS</p>
-                    <div className="location-map">MAPA</div>
+                    <p>Rua Barão de Santa Tecla, 712 - Centro, Pelotas - RS</p>
+                    <div className="location-map">
+                        <GeolocationMap />
+                    </div>
                 </div>
             </div>
             <div className="social-media">

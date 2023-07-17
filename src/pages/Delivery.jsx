@@ -6,8 +6,9 @@ import "../sass/pages/Delivery.sass"
 export default function Delivery() {
     return (
         <div>
-            <DeliveryCard />
+            <div className="delivery-card-bg"></div>
             <Container customClass="center-container">
+                <DeliveryCard />
                 <h3 className="sizes">Escolha um tamanho de acordo com a sua fome:</h3>
                 <div className="sizes-box">
                     <div className="size-card">

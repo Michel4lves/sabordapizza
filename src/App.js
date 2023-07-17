@@ -7,12 +7,14 @@ import Contact from "./pages/Contact";
 import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./config/ScrollToTop";
 
 
 export default function App() {
     return (
         <div className="App">
             <BrowserRouter>
+                <ScrollToTop />
                 <header className="header">
                     <NavMenu />
                 </header>
