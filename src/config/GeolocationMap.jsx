@@ -10,32 +10,28 @@ function GeolocationMap() {
 
 
     const handleKeyDown = (event) => {
-        // Verifica se a tecla CTRL está pressionada (event.ctrlKey) ou se a tecla Command está pressionada no macOS (event.metaKey)
         if (event.ctrlKey || event.metaKey) {
             setMapEnabled(true);
             mapRef.current.scrollWheelZoom.enable();
             mapRef.current.dragging.enable();
         }
     };
-        
+
     const handleKeyUp = () => {
         setMapEnabled(false);
         mapRef.current.scrollWheelZoom.disable();
         mapRef.current.dragging.disable();
     };
-    
+
     useEffect(() => {
-        // Adiciona os ouvintes de eventos quando o componente é montado
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('keyup', handleKeyUp);
-    
-        // Remove os ouvintes de eventos quando o componente é desmontado
+
         return () => {
         window.removeEventListener('keydown', handleKeyDown);
         window.removeEventListener('keyup', handleKeyUp);
         };
     }, []);
-
 
 
     const customIcon = new L.Icon({
@@ -50,7 +46,7 @@ function GeolocationMap() {
             <MapContainer 
                 center={position} 
                 zoom={16} 
-                style={{position: "relative", height: '150px', width: '600px' }} 
+                style={{position: "relative", height: '100%', width: '100%' }} 
                 dragging={mapEnabled}
                 scrollWheelZoom={mapEnabled}
                 ref={mapRef}

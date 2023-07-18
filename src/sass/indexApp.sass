@@ -33,11 +33,17 @@ body
 
     .center-container
         width: 1200px
-        margin: 130px auto 0 auto 
+        margin: 130px auto 0 auto
+
+        @include mixins.large
+            width: 100%
 
     .center-container-home
         width: 1200px
         margin: 0 auto
+
+        @include mixins.large
+            width: 100%
 
     .footer
         position: relative
