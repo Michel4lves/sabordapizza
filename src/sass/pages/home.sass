@@ -8,11 +8,20 @@
     height: 510px
     @include mixins.flex-center
 
+    @include mixins.mediun
+        padding-top: 275px
+        height: 320px
 
     .banner-img
         position: relative
         min-width: 1903px
         z-index: 1
+
+        @include mixins.large
+            min-width: 1200px
+
+        @include mixins.mediun
+            min-width: 960px
 
     .marquee-img
         position: absolute
@@ -20,9 +29,21 @@
         left: calc(50% + 150px)
         z-index: 2
 
+        @include mixins.large
+            left: calc(50% + 100px)
+            width: 300px
+        
+        @include mixins.mediun
+            left: calc(50% + 100px)
+            width: 200px
+            top: 330px
+
 .center-container-home
     padding-top: 470px
 
+    @include mixins.large
+        padding-top: 370px
+    
     .promotions
         width: 100%
         height: auto
@@ -32,6 +53,9 @@
             margin-left: 50px
             margin-bottom: 30px
             color: variables.$title-color
+
+            @include mixins.mediun
+                padding-top: 290px
 
         .promotion-card-box
             width: 100%
@@ -52,8 +76,17 @@
             margin-bottom: -5px
             padding-top: 130px
 
+            @include mixins.mediun
+                margin-top: -180px
+                padding-top: 300px
+
+
         .sabor-da-pizza
             @include mixins.flex-center
+
+            @include mixins.mediun
+                flex-direction: column-reverse
+                margin-top: 50px
 
             .presentation-text
                 padding: 30px

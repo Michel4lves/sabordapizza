@@ -8,19 +8,24 @@
     height: 580px
     background: variables.$primary-color
 
+    @include mixins.mediun
+        display: none
+
 .sizes
-    margin-left: 50px
-    margin: -80px 50px 80px
+    margin: 50px
     font-size: 1.3em
 
 .sizes-box
     @include mixins.flex-center
     justify-content: space-around
-    margin: 150px 0 100px 0
+    margin-bottom: 100px
+    flex-wrap: wrap
 
     .size-card
         @include mixins.flex-center
         gap: 20px
+        width: 260px
+        padding-top: 30px
 
         .pizza-circle-45
             position: relative

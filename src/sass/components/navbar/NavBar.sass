@@ -1,4 +1,5 @@
 @use "../../variables"
+@use "../../_mixins"
 
 .navbar
     position: relative
@@ -9,12 +10,14 @@
     justify-content: space-between
     align-items: center
 
+    @include mixins.large
+        width: 100%
+
     a
 
         .logo
             position: relative
             width: 120px
-            margin-left: 100px
 
     ul
         position: relative
@@ -25,6 +28,16 @@
         list-style: none
         display: flex
         align-items: flex-end
+
+        @include mixins.large
+            right: 50px
+
+        @include mixins.mediun
+            flex-direction: column
+            left: calc(-50% + 70px)
+            align-items: center
+            justify-content: flex-start
+            bottom: 0
 
         li
 
@@ -44,6 +57,12 @@
         right: 100px
         font-size: .9em
         color: variables.$title-color
+
+        @include mixins.mediun
+            top: 50%
+
+        @include mixins.large
+            right: 50px
 
         span
             font-size: 1.4em
