@@ -2,6 +2,10 @@
 ## Pizzaria Delivery
 
 Projeto Front-End  de uma Landing Page para uma pizzaria.
+
+### Acesse este projeto em:
+
+https://michel4lves.github.io/sabordapizza/
     
     Este projeto visa praticar conceitos de programação front-end:
     - Html;
