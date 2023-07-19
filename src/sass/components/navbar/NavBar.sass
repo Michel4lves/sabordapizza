@@ -39,6 +39,9 @@
             justify-content: flex-start
             bottom: 0
 
+            @include mixins.mobile
+                left: 0
+
         li
 
             a
@@ -64,7 +67,9 @@
         @include mixins.large
             right: 50px
 
+        @include mixins.mobile
+            position: relative
+            right: 0
+
         span
             font-size: 1.4em
-
-

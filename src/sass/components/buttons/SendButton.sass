@@ -1,4 +1,5 @@
 @use "../../variables"
+@use "../../_mixins"
 
 .send-button
     position: absolute
@@ -11,6 +12,11 @@
     border: 1px solid variables.$primary-color
     border-radius: 5px
     cursor: pointer
+
+    @include mixins.mobile
+        position: relative
+        right: 0
+        bottom: 0
 
     &:hover
         background: variables.$title-color

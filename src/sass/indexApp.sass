@@ -29,6 +29,11 @@ body
 
         @include mixins.mediun
             height: 270px
+            width: 100%
+
+        @include mixins.mobile
+            position: relative
+            height: auto
 
     .container
         width: 100%
@@ -40,6 +45,9 @@ body
 
         @include mixins.large
             width: 100%
+
+        @include mixins.mobile
+            margin: 0 auto
 
     .center-container-home
         width: 1200px
@@ -56,3 +64,6 @@ body
         @include mixins.flex-center
         background-color: variables.$primary-color
         margin-top: 50px
+
+        @include mixins.large
+            width: 100%

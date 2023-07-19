@@ -8,6 +8,14 @@
     border: 1px solid variables.$text-color
     border-radius: 10px
     padding: 10px
+    overflow: hidden
+
+    @include mixins.mobile
+        width: 260px
+        padding: 5px
+        flex-direction: column
+        height: 330px
+
 
     img
         width: 150px
@@ -22,6 +30,9 @@
         flex-direction: column
         gap: 10px
 
+        @include mixins.mobile
+            padding: 10px 0px
+
         .pizza-name
             color: variables.$title-color
 
@@ -29,6 +40,9 @@
             color: variables.$text-color
             font-size: 1.1em
             width: 302px
+
+            @include mixins.mobile
+                width: 260px
 
         .alert
             position: absolute
@@ -39,6 +53,9 @@
             font-weight: bold
             font-size: 1.1em
             animation: blinks 1s linear infinite
+
+            @include mixins.mobile
+                left: 30px
 
         @keyframes blinks 
             0% 
@@ -53,3 +70,6 @@
             right: 0
             bottom: 0
             color: variables.$text-color
+
+            @include mixins.mobile
+                right: 30px

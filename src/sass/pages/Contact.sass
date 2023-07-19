@@ -7,11 +7,21 @@
     margin-bottom: 30px
     color: variables.$title-color
 
+    @include mixins.mediun
+        padding-top: 160px
+
+    @include mixins.mobile
+        padding-top: 0
+
+
 .contacts
-    // border: 1px solid red
     height: 400px
     @include mixins.flex-center
     justify-content: flex-start
+
+    @include mixins.mobile
+        flex-direction: column
+        height: auto
 
     .contact-info
         width: 40%
