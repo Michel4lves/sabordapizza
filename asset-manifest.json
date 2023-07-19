@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/sabordapizza/static/css/main.a0558364.css",
+    "main.js": "/sabordapizza/static/js/main.9794ab29.js",
+    "static/media/pizzas-family.png": "/sabordapizza/static/media/pizzas-family.f9f82d333ab26c32c950.png",
+    "static/media/pizza-two.png": "/sabordapizza/static/media/pizza-two.b4defeb619791003e514.png",
+    "static/media/pizzas-big.png": "/sabordapizza/static/media/pizzas-big.6abad246b0c0fbf4fe73.png",
+    "static/media/pizzas-family-soda.png": "/sabordapizza/static/media/pizzas-family-soda.e2494c13ad156c306d4d.png",
+    "static/media/sabor-da-pizza.jpg": "/sabordapizza/static/media/sabor-da-pizza.239158ee0ad08039b2f9.jpg",
+    "static/media/banner.jpg": "/sabordapizza/static/media/banner.d7789bfe70aca006cc25.jpg",
+    "static/media/logo.png": "/sabordapizza/static/media/logo.12b8939b48715f4082f3.png",
+    "static/media/logo-gray.png": "/sabordapizza/static/media/logo-gray.2eaa8f2bdd98024a0886.png",
+    "static/media/marcador.png": "/sabordapizza/static/media/marcador.9dd0cb1df2fd33a6e25c.png",
+    "static/media/pizza01.jpg": "/sabordapizza/static/media/pizza01.2946acea24a553bc3a92.jpg",
+    "static/media/pizza02.jpg": "/sabordapizza/static/media/pizza02.932aaf10445ffab25527.jpg",
+    "static/media/pizza11.jpg": "/sabordapizza/static/media/pizza11.5960e4e1762c54d408a9.jpg",
+    "static/media/pizza10.jpg": "/sabordapizza/static/media/pizza10.d10b49cfc530fa1b3e26.jpg",
+    "static/media/pizza05.jpg": "/sabordapizza/static/media/pizza05.c3b1e24a36cfea6f2e62.jpg",
+    "static/media/pizza08.jpg": "/sabordapizza/static/media/pizza08.ca613e5da66290847c48.jpg",
+    "static/media/pizza12.jpg": "/sabordapizza/static/media/pizza12.c8fab1d0079f72eb59c9.jpg",
+    "static/media/pizza03.jpg": "/sabordapizza/static/media/pizza03.c80f3183c645c9345e5c.jpg",
+    "static/media/pizza07.jpg": "/sabordapizza/static/media/pizza07.2efc60ccb572051ddcc0.jpg",
+    "static/media/pizza06.jpg": "/sabordapizza/static/media/pizza06.257c04ecd5a802883efb.jpg",
+    "static/media/pizza04.jpg": "/sabordapizza/static/media/pizza04.d3f552501872e9563f55.jpg",
+    "static/media/pizza14.jpg": "/sabordapizza/static/media/pizza14.e1a58aa12baff03b34b9.jpg",
+    "static/media/pizza09.jpg": "/sabordapizza/static/media/pizza09.897dc1c741492c3e6f18.jpg",
+    "static/media/pizza13.jpg": "/sabordapizza/static/media/pizza13.8341c6b4765250972ca7.jpg",
+    "static/media/zapp.png": "/sabordapizza/static/media/zapp.beb8ac3018f0af83f879.png",
+    "static/media/delivery.jpg": "/sabordapizza/static/media/delivery.ca4cd62dad310da2bc94.jpg",
+    "static/media/marquee.png": "/sabordapizza/static/media/marquee.58a23a980ea163e1d93e.png",
+    "static/media/payment.png": "/sabordapizza/static/media/payment.107cecaf5ea51a1b587e.png",
+    "index.html": "/sabordapizza/index.html",
+    "main.a0558364.css.map": "/sabordapizza/static/css/main.a0558364.css.map",
+    "main.9794ab29.js.map": "/sabordapizza/static/js/main.9794ab29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0558364.css",
+    "static/js/main.9794ab29.js"
+  ]
+}
