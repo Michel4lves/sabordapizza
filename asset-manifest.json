@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sabordapizza/static/css/main.a0558364.css",
+    "main.css": "/sabordapizza/static/css/main.d4aa9094.css",
     "main.js": "/sabordapizza/static/js/main.9794ab29.js",
     "static/media/pizzas-family.png": "/sabordapizza/static/media/pizzas-family.f9f82d333ab26c32c950.png",
     "static/media/pizza-two.png": "/sabordapizza/static/media/pizza-two.b4defeb619791003e514.png",
@@ -30,11 +30,11 @@
     "static/media/marquee.png": "/sabordapizza/static/media/marquee.58a23a980ea163e1d93e.png",
     "static/media/payment.png": "/sabordapizza/static/media/payment.107cecaf5ea51a1b587e.png",
     "index.html": "/sabordapizza/index.html",
-    "main.a0558364.css.map": "/sabordapizza/static/css/main.a0558364.css.map",
+    "main.d4aa9094.css.map": "/sabordapizza/static/css/main.d4aa9094.css.map",
     "main.9794ab29.js.map": "/sabordapizza/static/js/main.9794ab29.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0558364.css",
+    "static/css/main.d4aa9094.css",
     "static/js/main.9794ab29.js"
   ]
 }
