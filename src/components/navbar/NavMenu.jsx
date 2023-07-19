@@ -29,27 +29,27 @@ useEffect(() => {
 
     return (
         <nav className="navbar">
-            <Link to="/" onClick={() => handleTitle("null")} className="logo">
+            <Link to="sabordapizza/" onClick={() => handleTitle("null")} className="logo">
                 <img src={logo} alt="logo" />
             </Link>
             <ul>
                 <li>
-                    <Link to="/" onClick={() => handleTitle("null")}>Home</Link>
+                    <Link to="sabordapizza/" onClick={() => handleTitle("null")}>Home</Link>
                 </li>
                 <li>
-                    <Link to="/#promocoes" onClick={() => handleTitle("promocoes")}>Promoções</Link>
+                    <Link to="/sabordapizza/#promocoes" onClick={() => handleTitle("promocoes")}>Promoções</Link>
                 </li>
                 <li>
-                    <Link to="/#saborDaPizza" onClick={() => handleTitle("saborDaPizza")}>Sabor da pizza</Link>
+                    <Link to="/sabordapizza/#saborDaPizza" onClick={() => handleTitle("saborDaPizza")}>Sabor da pizza</Link>
                 </li>
                 <li>
-                    <Link to="/cardapio" onClick={() => handleTitle("null")}>Cardápio</Link>
+                    <Link to="/sabordapizza/cardapio" onClick={() => handleTitle("null")}>Cardápio</Link>
                 </li>
                 <li>
-                    <Link to="/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
+                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
                 </li>
                 <li>
-                    <Link to="/contact" onClick={() => handleTitle("null")}>Contato</Link>
+                    <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>

@@ -20,10 +20,10 @@ export default function App() {
                 </header>
                 <Container>
                     <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='cardapio' element={<Cardapio />} />
-                        <Route path='delivery' element={<Delivery />} />
-                        <Route path='contact' element={<Contact />} />
+                        <Route path='sabordapizza/' element={<Home />} />
+                        <Route path='sabordapizza/cardapio' element={<Cardapio />} />
+                        <Route path='sabordapizza/delivery' element={<Delivery />} />
+                        <Route path='sabordapizza/contact' element={<Contact />} />
                     </Routes>
                 </Container>
                 <footer className="footer">
