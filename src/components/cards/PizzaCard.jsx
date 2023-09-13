@@ -15,7 +15,6 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
             medium: mediumPrice,
             large: largePrice,
         }
-        console.log(sizeToPrice[selectedSize])
         return sizeToPrice[selectedSize]
     }
 
@@ -27,32 +26,38 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
                 <p className="pizza-description">{pizzaDescription}</p>
 
                 <div className="sizes-box">
-                    <input
-                        type="radio"
-                        name={`size-${pizzaName}`}
-                        value="small"
-                        checked={selectedSize === 'small'}
-                        onChange={handleSizeChange}
-                    />
-                    <label htmlFor={`size-${pizzaName}`}>Média</label>
+                    <label htmlFor={`size-${pizzaName}`}>
+                        <input
+                            type="radio"
+                            name={`size-${pizzaName}`}
+                            value="small"
+                            checked={selectedSize === 'small'}
+                            onChange={handleSizeChange}
+                        />
+                        <span className="size-name">Média</span>
+                    </label>
 
-                    <input
-                        type="radio"
-                        name={`size-${pizzaName}`}
-                        value="medium"
-                        checked={selectedSize === 'medium'}
-                        onChange={handleSizeChange}
-                    />
-                    <label htmlFor={`size-${pizzaName}`}>Grande</label>
+                    <label htmlFor={`size-${pizzaName}`}>
+                        <input
+                            type="radio"
+                            name={`size-${pizzaName}`}
+                            value="medium"
+                            checked={selectedSize === 'medium'}
+                            onChange={handleSizeChange}
+                        />
+                        <span className="size-name">Grande</span>
+                    </label>
 
-                    <input
-                        type="radio"
-                        name={`size-${pizzaName}`}
-                        value="large"
-                        checked={selectedSize === 'large'}
-                        onChange={handleSizeChange}
-                    />
-                    <label htmlFor={`size-${pizzaName}`}>Família</label>
+                    <label htmlFor={`size-${pizzaName}`}>
+                        <input
+                            type="radio"
+                            name={`size-${pizzaName}`}
+                            value="large"
+                            checked={selectedSize === 'large'}
+                            onChange={handleSizeChange}
+                            />
+                        <span className="size-name">Família</span>
+                    </label>
                 </div>
 
 
