@@ -28,35 +28,48 @@ export default function Cardapio() {
                         image={pizza1}
                         pizzaName="Pizza Mar e Terra"
                         pizzaDescription="Camarão, pedaços de frango grelhado, cogumelos e azeitonas pretas"
-                        alert="Novo sabor"
-                        price="R$ 45,00"
+                        alert="Novo"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza2}
                         pizzaName="Pizza Creme De Presunto"
                         pizzaDescription="Presunto com catupiry"
-                        price="R$ 35,00"
+                        alert="Normal"
+                        smallPrice="43,00"
+                        mediumPrice="60,00"
+                        largePrice="72,00"
                     />
                     <PizzaCard
                         image={pizza3}
                         pizzaName="Pizza Presunto Serrano"
                         pizzaDescription="Fatias de presunto serrano com toque de manjericão"
-                        price="R$ 38,00"
+                        alert="Normal"
+                        smallPrice="43,00"
+                        mediumPrice="60,00"
+                        largePrice="72,00"
                     />
                     <PizzaCard
                         image={pizza4}
                         pizzaName="Pizza Quatro Carnes"
                         pizzaDescription="Quatro segmentos de pura carne: presunto, bacon, chouriço e salame"
-                        alert="Novo sabor"
-                        price="R$ 52,50"
+                        alert="Novo"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza5}
                         pizzaName="Pizza Chilena"
                         pizzaDescription="Carne moída, cebola e tomate"
-                        price="R$ 36,50"
+                        alert="Normal"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
-                    <PizzaCard
+                    {/* <PizzaCard
                         image={pizza6}
                         pizzaName="Pizza Margarida"
                         pizzaDescription="Molho de tomate com mussarela"
@@ -110,7 +123,7 @@ export default function Cardapio() {
                         pizzaName="Pizza Pepperoni"
                         pizzaDescription="Pepperoni com um toque de manjericão"
                         price="R$ 48,50"
-                    />
+                    /> */}
                 </section>
             </Container>
         </div>

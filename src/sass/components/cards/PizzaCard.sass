@@ -2,74 +2,83 @@
 @use "../../mixins"
 
 .pizza-card
+    position: relative
     @include mixins.flex-center
-    width: 500px
-    height: 150px
-    border: 1px solid variables.$text-color
+    flex-direction: column
+    width: 250px
+    height: 500px
+    gap: 30px
     border-radius: 10px
-    padding: 10px
+    padding: 20px
     overflow: hidden
+    border: 1px solid transparent
 
-    @include mixins.mobile
-        width: 260px
-        padding: 5px
-        flex-direction: column
-        height: 330px
+    &:hover
+        border: 1px solid variables.$text-color
 
+
+    // @include mixins.mobile
+    //     width: 260px
+    //     padding: 5px
+    //     flex-direction: column
+    //     height: 330px
+
+    .Novo
+        position: absolute
+        top: 10px
+        left: 10px
+        background-color: variables.$primary-color
+        color: variables.$secondary-color
+        border-radius: 2px
+        text-transform: uppercase 
+        font-weight: bold
+        padding: 3px 5px
+        font-size: 0.8em
+
+    .Normal
+        @extend .Novo
+        visibility: hidden
+
+        // @include mixins.mobile
+        //     left: 30px
 
     img
-        width: 150px
+        margin-top: 15px
+        width: 180px
         border: 5px solid variables.$primary-color
-        border-radius: 20px
+        border-radius: 50%
 
     .description-box
         position: relative
+        bottom: 0px
+        width: 100%
         height: 100%
-        padding: 0 20px
+        margin: 20px
         display: flex
+        justify-content: space-around
         flex-direction: column
         gap: 10px
 
-        @include mixins.mobile
-            padding: 10px 0px
+        // @include mixins.mobile
+        //     padding: 10px 0px
 
         .pizza-name
             color: variables.$title-color
+            font-size: 1.3em
 
         .pizza-description
             color: variables.$text-color
-            font-size: 1.1em
-            width: 302px
+            font-size: 1em
+            width: 100%
+            height: 80px
 
-            @include mixins.mobile
-                width: 260px
+            // @include mixins.mobile
+            //     width: 260px
 
-        .alert
-            position: absolute
-            bottom: 0
-            color: variables.$primary-color
-            width: 140px
-            text-transform: uppercase 
-            font-weight: bold
-            font-size: 1.1em
-            animation: blinks 1s linear infinite
-
-            @include mixins.mobile
-                left: 30px
-
-        @keyframes blinks 
-            0% 
-                opacity: 1
-            50% 
-                opacity: 0
-            100% 
-                opacity: 1
+        
 
         .price
-            position: absolute
-            right: 0
-            bottom: 0
             color: variables.$text-color
 
-            @include mixins.mobile
-                right: 30px
+            // @include mixins.mobile
+            //     right: 30px
