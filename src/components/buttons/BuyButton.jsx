@@ -1,7 +1,7 @@
 import "../../sass/components/buttons/BuyButton.sass"
 
-export default function BuyButton({ title, handleClick }) {
+export default function BuyButton({ title, handleClick, custonClass }) {
     return (
-        <button className="buy-button" onClick={handleClick}>{title}</button>
+        <button className={`buy-button ${custonClass}`} onClick={handleClick}>{title}</button>
     )
 }

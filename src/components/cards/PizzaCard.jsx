@@ -1,9 +1,18 @@
 import { useState } from "react";
 import "../../sass/components/cards/PizzaCard.sass"
+import BuyButton from "../buttons/BuyButton"
 
 const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, mediumPrice, largePrice }) => {
 
     const [selectedSize, setSelectedSize] = useState('small')
+    const [add, setAdd] = useState("Adicionar ao pedido")
+
+    function added() {
+        setAdd("Adicionado")
+        setTimeout(() => {
+            setAdd("Adicionar ao pedido")
+        }, 2000);
+    }
 
     const handleSizeChange = (event) => {
         setSelectedSize(event.target.value);
@@ -59,10 +68,11 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
                         <span className="size-name">Família</span>
                     </label>
                 </div>
-
-
-                <h3 className="price">R$ {calculatePrice(smallPrice, mediumPrice, largePrice)}</h3>
+                <h3 className="price">
+                    R$ {calculatePrice(smallPrice, mediumPrice, largePrice)}
+                </h3>
             </div>
+            <BuyButton title={add} handleClick={added} custonClass="self-center" />
             <p className={`${alert}`}>{alert}</p>
         </div>
     )

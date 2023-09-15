@@ -55,7 +55,7 @@ export default function Cardapio() {
                         image={pizza4}
                         pizzaName="Pizza Quatro Carnes"
                         pizzaDescription="Quatro segmentos de pura carne: presunto, bacon, chouriço e salame"
-                        alert="Novo"
+                        alert="Premiun"
                         smallPrice="45,90"
                         mediumPrice="62,90"
                         largePrice="74,90"
@@ -69,61 +69,87 @@ export default function Cardapio() {
                         mediumPrice="62,90"
                         largePrice="74,90"
                     />
-                    {/* <PizzaCard
+                    <PizzaCard
                         image={pizza6}
                         pizzaName="Pizza Margarida"
                         pizzaDescription="Molho de tomate com mussarela"
-                        price="R$ 34,00"
+                        alert="Normal"
+                        smallPrice="44,90"
+                        mediumPrice="60,90"
+                        largePrice="72,90"
                     />
                     <PizzaCard
                         image={pizza7}
                         pizzaName="Pizza Quatro Queijos"
                         pizzaDescription="Mistura de quatro queijos para dar um sabor inesquecível"
-                        alert="Novo sabor"
-                        price="R$ 48,50"
+                        alert="Novo"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza8}
                         pizzaName="Pizza Três Marias"
                         pizzaDescription="Escolha três entre: presunto, bacon, salame, pimentão vermelho ou verde, cogumelos, cebola, tomate, azeitona preta ou milho"
-                        price="R$ 38,00"
+                        alert="Normal"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza9}
                         pizzaName="Pizza Salmão"
                         pizzaDescription="Tiras de salmão com catupiry"
-                        price="R$ 64,00"
+                        alert="Premiun"
+                        smallPrice="48,90"
+                        mediumPrice="66,90"
+                        largePrice="77,90"
                     />
                     <PizzaCard
                         image={pizza10}
                         pizzaName="Pizza Campestre"
                         pizzaDescription="Presunto, pimentão roxo ou verde, cogumelos e azeitonas pretas"
-                        price="R$ 42,00"
+                        alert="Normal"
+                        smallPrice="44,00"
+                        mediumPrice="61,00"
+                        largePrice="71,00"
                     />
                     <PizzaCard
                         image={pizza11}
                         pizzaName="Pizza Salame"
                         pizzaDescription="Salame, cebola, tomate e azeitonas pretas"
-                        price="R$ 37,00"
+                        alert="Normal"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza12}
                         pizzaName="Pizza Frango Tropical "
                         pizzaDescription="Pedaços de peito de frango, tomate, cogumelos e manjericão"
-                        price="R$ 44,50"
+                        alert="Normal"
+                        smallPrice="45,00"
+                        mediumPrice="60,00"
+                        largePrice="70,00"
                     />
                     <PizzaCard
                         image={pizza13}
                         pizzaName="Pizza Havaiana"
                         pizzaDescription="Presunto e abacaxi"
-                        price="R$ 33,50"
+                        alert="Normal"
+                        smallPrice="45,90"
+                        mediumPrice="62,90"
+                        largePrice="74,90"
                     />
                     <PizzaCard
                         image={pizza14}
                         pizzaName="Pizza Pepperoni"
                         pizzaDescription="Pepperoni com um toque de manjericão"
-                        price="R$ 48,50"
-                    /> */}
+                        alert="Premiun"
+                        smallPrice="46,90"
+                        mediumPrice="63,90"
+                        largePrice="76,90"
+                    />
                 </section>
             </Container>
         </div>

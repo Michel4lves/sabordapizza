@@ -13,7 +13,6 @@ const PromotionCard = ({ image, title, text1, text2, price }) => {
         }, 2000);
     }
 
-
     return (
         <div className="promotion-card">
             <img src={image} alt={title} />
