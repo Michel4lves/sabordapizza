@@ -14,6 +14,7 @@
         padding-top: 0
 
 .cartBx
+    @include mixins.flex-center
 
     .product-list
         width: 100%
@@ -27,4 +28,41 @@
         .table-list
             margin: 50px 0
             line-height: 120px
+
+    .checkoutBx
+        border: 3px solid variables.$primary-color
+        width: 350px
+        height: 300px
+        padding: 10px
+        border-radius: 10px
+        margin-left: 50px
+
+        details
+            border-bottom: 1px solid variables.$title-color
+
+            summary
+                font-size: 1.2em
+                font-weight: bold
+                margin: 20px 15px
+
+            .couponBx
+                @include mixins.flex-center
+                gap: 10px
+                margin-bottom: 20px
+
+        .subTotalBx, .totalBx
+            @include mixins.flex-center
+            justify-content: space-between
+            margin-bottom: 20px
+            margin: 20px 5px
+            border-bottom: 1px solid variables.$title-color
+
+            h3, h4
+                font-size: 1.2em
+                margin-bottom: 20px
+                text-transform: uppercase
+
+            h3
+                font-size: 1.3em
+
 

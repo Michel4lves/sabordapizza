@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../sass/components/cards/CartCard.sass"
 import AddCountButton from "../buttons/AddCountButton";
 
-const CartCard = ({ image, pizzaName, pizzaSize }) => {
+const CartCard = ({ image, pizzaName, pizzaSize, price }) => {
 
     const [count, setCount] = useState(1)
+    const [subTotal, setSubTotal] = useState(price)
 
     function less() {
         if (count) {
@@ -15,6 +16,15 @@ const CartCard = ({ image, pizzaName, pizzaSize }) => {
     function plus() {
         setCount((count) => count + 1)
     }
+
+    
+    useEffect(() => {
+        function countPrice() {
+            const newSubTotal = (count * parseFloat(price)).toFixed(2)
+            setSubTotal(newSubTotal)
+        }
+        countPrice();
+    }, [count, price]);
 
     return (
         <>
@@ -29,7 +39,7 @@ const CartCard = ({ image, pizzaName, pizzaSize }) => {
             </td>
             <td>
                 <h3 className="cart-price">
-                    R$ 62,90
+                    R$ {parseFloat(price).toFixed(2)}
                 </h3>
             </td>
             <td>
@@ -37,7 +47,7 @@ const CartCard = ({ image, pizzaName, pizzaSize }) => {
             </td>
             <td>
                 <h3 className="cart-price">
-                    R$ 62,90
+                    R$ {subTotal}
                 </h3>
             </td>
         </>
