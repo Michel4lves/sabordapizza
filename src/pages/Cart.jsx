@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import CartCard from "../components/cards/CartCard";
 import Container from "../components/container/Container";
 import TextInput from "../components/inputs/TextInput"
@@ -9,6 +11,21 @@ import pizza1 from "../img/pizza01.jpg"
 import pizza7 from "../img/pizza07.jpg"
 
 export default function Cart() {
+
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    
+    const updateTotalPrice = (subTotal) => {
+        const count = []
+        count.push(parseFloat(subTotal))
+        // setTotalPrice((totalPrice) => parseFloat(totalPrice + subTotal).toFixed(2))
+        // setTotalPrice(parseFloat(totalPrice + subTotal).toFixed(2))
+        console.log(subTotal)
+        console.log(count)
+    }
+
+
+
     return (
         <div>
             <Container customClass="center-container">
@@ -30,6 +47,7 @@ export default function Cart() {
                                     pizzaName="Pizza Mar e Terra"
                                     pizzaSize="Grande"
                                     price={62.90}
+                                    onUpdateTotalPrice={updateTotalPrice}
                                 />
                             </tr>
                             <tr>
@@ -38,6 +56,7 @@ export default function Cart() {
                                     pizzaName="Pizza Quatro Queijos"
                                     pizzaSize="Família"
                                     price={74.90}
+                                    onUpdateTotalPrice={updateTotalPrice}
                                 />
                             </tr>
                         </tbody>
@@ -52,7 +71,7 @@ export default function Cart() {
                         </details>
                         <div className="subTotalBx">
                             <h4>Subtotal</h4>
-                            <h4>R$ 123,80</h4>
+                            <h4>R$ {totalPrice}</h4>
                         </div>
                         <div className="totalBx">
                             <h3>Total</h3>
