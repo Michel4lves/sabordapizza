@@ -22,13 +22,6 @@
     &:hover .self-center
         visibility: visible
 
-
-    // @include mixins.mobile
-    //     width: 260px
-    //     padding: 5px
-    //     flex-direction: column
-    //     height: 330px
-
     .Novo
         position: absolute
         top: 10px
@@ -49,9 +42,6 @@
         @extend .Novo
         background-color: variables.$title-color
 
-        // @include mixins.mobile
-        //     left: 30px
-
     img
         margin-top: 20px
         width: 180px
@@ -61,15 +51,11 @@
     .description-box
         position: relative
         width: 100%
-        // height: 100%
         margin: 10px 10px 0 10px
         display: flex
         justify-content: flex-start
         flex-direction: column
         gap: 10px
-
-        // @include mixins.mobile
-        //     padding: 10px 0px
 
         .pizza-name
             color: variables.$title-color
@@ -80,9 +66,6 @@
             font-size: 1em
             width: 100%
             height: 60px
-
-            // @include mixins.mobile
-            //     width: 260px
 
         .sizes-box
             position: relative
@@ -122,18 +105,18 @@
                         opacity: 0.5
 
                         ~ .size-name
-                            background: variables.$title-color
+                            background: variables.$primary-color
                             border: 1px solid variables.$title-color
                             color: variables.$secondary-color
 
         .price
             color: variables.$text-color
 
-            // @include mixins.mobile
-            //     right: 30px
-
     .self-center
         align-self: center
         width: 100%
         padding: 18px
         visibility: hidden
+
+        @include mixins.large
+            visibility: visible

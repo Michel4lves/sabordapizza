@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import { GiBeachBag } from "react-icons/gi";
+
 import "../../sass/components/navbar/NavBar.sass"
 import "../../sass/components/navbar/NavMenu.sass"
 
@@ -50,6 +52,9 @@ useEffect(() => {
                 </li>
                 <li>
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
+                </li>
+                <li>
+                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /></Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>

@@ -13,8 +13,6 @@ import pizza9 from "../img/pizza09.jpg"
 import pizza10 from "../img/pizza10.jpg"
 import pizza11 from "../img/pizza11.jpg"
 import pizza12 from "../img/pizza12.jpg"
-import pizza13 from "../img/pizza13.jpg"
-import pizza14 from "../img/pizza14.jpg"
 
 import "../sass/pages/cardapio.sass"
 
@@ -89,15 +87,6 @@ export default function Cardapio() {
                     />
                     <PizzaCard
                         image={pizza8}
-                        pizzaName="Pizza Três Marias"
-                        pizzaDescription="Escolha três entre: presunto, bacon, salame, pimentão vermelho ou verde, cogumelos, cebola, tomate, azeitona preta ou milho"
-                        alert="Normal"
-                        smallPrice="45,90"
-                        mediumPrice="62,90"
-                        largePrice="74,90"
-                    />
-                    <PizzaCard
-                        image={pizza9}
                         pizzaName="Pizza Salmão"
                         pizzaDescription="Tiras de salmão com catupiry"
                         alert="Premiun"
@@ -106,7 +95,7 @@ export default function Cardapio() {
                         largePrice="77,90"
                     />
                     <PizzaCard
-                        image={pizza10}
+                        image={pizza9}
                         pizzaName="Pizza Campestre"
                         pizzaDescription="Presunto, pimentão roxo ou verde, cogumelos e azeitonas pretas"
                         alert="Normal"
@@ -115,7 +104,7 @@ export default function Cardapio() {
                         largePrice="71,00"
                     />
                     <PizzaCard
-                        image={pizza11}
+                        image={pizza10}
                         pizzaName="Pizza Salame"
                         pizzaDescription="Salame, cebola, tomate e azeitonas pretas"
                         alert="Normal"
@@ -124,7 +113,7 @@ export default function Cardapio() {
                         largePrice="74,90"
                     />
                     <PizzaCard
-                        image={pizza12}
+                        image={pizza11}
                         pizzaName="Pizza Frango Tropical "
                         pizzaDescription="Pedaços de peito de frango, tomate, cogumelos e manjericão"
                         alert="Normal"
@@ -133,16 +122,7 @@ export default function Cardapio() {
                         largePrice="70,00"
                     />
                     <PizzaCard
-                        image={pizza13}
-                        pizzaName="Pizza Havaiana"
-                        pizzaDescription="Presunto e abacaxi"
-                        alert="Normal"
-                        smallPrice="45,90"
-                        mediumPrice="62,90"
-                        largePrice="74,90"
-                    />
-                    <PizzaCard
-                        image={pizza14}
+                        image={pizza12}
                         pizzaName="Pizza Pepperoni"
                         pizzaDescription="Pepperoni com um toque de manjericão"
                         alert="Premiun"

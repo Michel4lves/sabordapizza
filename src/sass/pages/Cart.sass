@@ -1,0 +1,30 @@
+@use "../variables"
+@use "../mixins"
+
+.cart-title
+    padding-top: 50px
+    margin-left: 50px
+    margin-bottom: 30px
+    color: variables.$title-color
+
+    @include mixins.mediun
+        padding-top: 180px
+
+    @include mixins.mobile
+        padding-top: 0
+
+.cartBx
+
+    .product-list
+        width: 100%
+
+        .table-title
+            font-size: 1.2em
+            font-weight: bold
+            line-height: 70px
+            border-bottom: 2px solid variables.$title-color
+
+        .table-list
+            margin: 50px 0
+            line-height: 120px
+

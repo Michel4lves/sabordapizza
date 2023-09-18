@@ -1,0 +1,32 @@
+@use "../../variables"
+@use "../../mixins"
+
+.product-box
+    @include mixins.flex-center
+    justify-content: flex-start
+    gap: 40px
+
+    .cart-pizza
+        width: 60px
+        border: 5px solid variables.$primary-color
+        border-radius: 50%
+
+    .name-box
+        // height: 52px
+        display: flex
+        justify-content: flex-start
+        flex-direction: column
+        gap: 10px
+        line-height: 1.3em
+
+        .pizza-name
+            color: variables.$title-color
+            font-size: 1.3em
+
+        .pizza-size
+            color: variables.$text-color
+
+.cart-price
+    color: variables.$text-color
+
+
