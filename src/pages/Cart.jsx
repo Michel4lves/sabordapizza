@@ -13,16 +13,64 @@ import pizza7 from "../img/pizza07.jpg"
 export default function Cart() {
 
     const [totalPrice, setTotalPrice] = useState(0)
+    const count = []
 
-    
     const updateTotalPrice = (subTotal) => {
-        const count = []
-        count.push(parseFloat(subTotal))
-        // setTotalPrice((totalPrice) => parseFloat(totalPrice + subTotal).toFixed(2))
-        // setTotalPrice(parseFloat(totalPrice + subTotal).toFixed(2))
-        console.log(subTotal)
+        if (subTotal === 0) {
+            count.push(null)
+        }else{
+            count.push(parseFloat(subTotal))
+        }
+        const countTotal = somarElementosArray(count);
+        setTotalPrice(parseFloat(countTotal).toFixed(2))
+        // console.log(countTotal)
         console.log(count)
     }
+    
+    function somarElementosArray(arr) {
+        return arr.reduce((acumulador, elemento) => acumulador + elemento, 0);
+    }
+
+
+    // const [totalPrice, setTotalPrice] = useState(0);
+    // const count = [];
+    
+    // const updateTotalPrice = (subTotal) => {
+    //     const parsedSubTotal = parseFloat(subTotal);
+    
+    //     // Verifica se o valor é zero
+    //     if (parsedSubTotal === 0) {
+    //         // Remove o valor diferente do zero do array
+    //         const index = count.indexOf(parsedSubTotal === 0 ? 1 : 0);
+    //         if (index !== -1) {
+    //         count.splice(index, 1);
+    //         }
+    //     } else {
+    //         // Remove o valor diferente do novo valor e adiciona o novo valor
+    //         const index = count.indexOf(parsedSubTotal === 0 ? 1 : 0);
+    //         if (index !== -1) {
+    //         count.splice(index, 1);
+    //         }
+    //         count.push(parsedSubTotal);
+    //     }
+    
+    //     // Calcula a soma atualizada e a define no estado
+    //     const countTotal = somarElementosArray(count);
+    //     setTotalPrice(parseFloat(countTotal).toFixed(2));
+    
+    //     // Exibe os valores recebidos
+    //     console.log(countTotal);
+    // };
+    
+    // function somarElementosArray(arr) {
+    //     return arr.reduce((acumulador, elemento) => acumulador + elemento, 0);
+    // }
+
+
+
+
+
+
 
 
 
