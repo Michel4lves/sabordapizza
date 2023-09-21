@@ -14,62 +14,36 @@ export default function Cart() {
 
     const [totalPrice, setTotalPrice] = useState(0)
     const count = []
+    const [code, setCode] = useState()
+    const [discount, setDiscount] = useState(0.00)
 
     const updateTotalPrice = (subTotal) => {
-        if (subTotal === 0) {
-            count.push(null)
-        }else{
-            count.push(parseFloat(subTotal))
-        }
-        const countTotal = somarElementosArray(count);
-        setTotalPrice(parseFloat(countTotal).toFixed(2))
-        // console.log(countTotal)
-        console.log(count)
+        const parsedSubTotal = parseFloat(subTotal)
+        count.push(parsedSubTotal)
+
+        const countTotal = somarElementosArray(count)
+        setTotalPrice(countTotal.toFixed(2))
     }
-    
+
     function somarElementosArray(arr) {
         return arr.reduce((acumulador, elemento) => acumulador + elemento, 0);
     }
 
+    const getCode = (e) => {
+        setCode(e.target.value)
+    }
 
-    // const [totalPrice, setTotalPrice] = useState(0);
-    // const count = [];
-    
-    // const updateTotalPrice = (subTotal) => {
-    //     const parsedSubTotal = parseFloat(subTotal);
-    
-    //     // Verifica se o valor é zero
-    //     if (parsedSubTotal === 0) {
-    //         // Remove o valor diferente do zero do array
-    //         const index = count.indexOf(parsedSubTotal === 0 ? 1 : 0);
-    //         if (index !== -1) {
-    //         count.splice(index, 1);
-    //         }
-    //     } else {
-    //         // Remove o valor diferente do novo valor e adiciona o novo valor
-    //         const index = count.indexOf(parsedSubTotal === 0 ? 1 : 0);
-    //         if (index !== -1) {
-    //         count.splice(index, 1);
-    //         }
-    //         count.push(parsedSubTotal);
-    //     }
-    
-    //     // Calcula a soma atualizada e a define no estado
-    //     const countTotal = somarElementosArray(count);
-    //     setTotalPrice(parseFloat(countTotal).toFixed(2));
-    
-    //     // Exibe os valores recebidos
-    //     console.log(countTotal);
-    // };
-    
-    // function somarElementosArray(arr) {
-    //     return arr.reduce((acumulador, elemento) => acumulador + elemento, 0);
-    // }
+    const checkCode = () => {
+        if (code === "pizza" || code === "desconto") {
+            setDiscount(10.00)
+        }else{
+            setDiscount(0.00)
+        }
+    }
 
-
-
-
-
+    const outCode = () => {
+        setDiscount(0.00)
+    }
 
 
 
@@ -110,20 +84,26 @@ export default function Cart() {
                         </tbody>
                     </table>
                     <div className="checkoutBx">
-                        <details>
-                            <summary>COUPON CODE</summary>
-                            <div className="couponBx">
-                                <TextInput type="text" />
-                                <BuyButton title="Adicionar" />
+                        {!discount ? 
+                            <details>
+                                <summary>CUPOM DESCONTO</summary>
+                                <div className="couponBx">
+                                    <TextInput type="text" onCodeChange={getCode} />
+                                    <BuyButton title="Adicionar" handleClick={checkCode} />
+                                </div>
+                            </details> : 
+                            <div className="removeBx">
+                                <span className="success">- R$ 10,00</span>
+                                <BuyButton title="Remover" handleClick={outCode} />
                             </div>
-                        </details>
+                        }
                         <div className="subTotalBx">
                             <h4>Subtotal</h4>
                             <h4>R$ {totalPrice}</h4>
                         </div>
                         <div className="totalBx">
                             <h3>Total</h3>
-                            <h3>R$ 123,80</h3>
+                            <h3>R$ {parseFloat(totalPrice - discount).toFixed(2)}</h3>
                         </div>
                         <LinkButton title="Finalizar" to="sabordapizza/checkout" />
                     </div>

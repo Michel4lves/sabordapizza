@@ -12,6 +12,10 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
             setCount((count) => count - 1)
         }
     }
+    
+    if (!count) {
+        setCount(1)
+    }
 
     function plus() {
         setCount((count) => count + 1)

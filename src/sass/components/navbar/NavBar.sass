@@ -52,7 +52,45 @@
 
                 &:hover
                     color: variables.$title-color
-                    
+
+                    .sub-option-bg
+                        display: block
+
+                .sub-option-bg
+                    display: none
+                    position: absolute
+                    top: 25px
+                    right: 120px
+                    width: 120px
+                    height: 200px
+                    background: variables.$primary-color
+                    transition: 2s
+                    overflow: hidden
+
+                    &:hover
+                        display: block
+
+                    ul
+                        position: absolute
+                        top: 33px
+                        left: 0
+                        width: 100%
+                        height: 100%
+                        @include mixins.flex-center
+                        align-items: flex-start
+                        padding-top: 10px
+                        
+                        background: variables.$secondary-color
+
+                        .sub-option
+                            color: variables.$title-color
+
+                            &:hover
+                                color: variables.$primary-color
+
+
+
+
 
     h3
         position: absolute

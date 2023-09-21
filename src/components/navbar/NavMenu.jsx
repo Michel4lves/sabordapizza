@@ -48,13 +48,27 @@ useEffect(() => {
                     <Link to="/sabordapizza/cardapio" onClick={() => handleTitle("null")}>Cardápio</Link>
                 </li>
                 <li>
-                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
+                    <a href="">
+                        Páginas
+                        <div className="sub-option-bg">
+                            <ul>
+                                <li>
+                                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")} class="sub-option">Delivery</Link>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </a>
                 </li>
+                {/* <li>
+                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
+                </li> */}
                 <li>
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
                 <li>
-                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /></Link>
+                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">2</span></Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>

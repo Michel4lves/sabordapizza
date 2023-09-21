@@ -4,7 +4,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
 import { BiSolidPhone } from "react-icons/bi";
 
-export default function TextInput({ type, placeholder, name, required }) {
+export default function TextInput({ type, placeholder, name, required, onCodeChange }) {
 
     const TypeInput = () => {
         switch (name) {
@@ -19,6 +19,8 @@ export default function TextInput({ type, placeholder, name, required }) {
         }
     }
 
+
+
     return (
         <div className="input-box">
             <div className="type-icon">{TypeInput()}</div>
@@ -27,6 +29,7 @@ export default function TextInput({ type, placeholder, name, required }) {
                 placeholder={placeholder} 
                 name={name} 
                 required={required}
+                onChange={onCodeChange}
                 >
             </input>
         </div>
