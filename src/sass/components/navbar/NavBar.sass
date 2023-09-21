@@ -56,14 +56,19 @@
                     .sub-option-bg
                         display: block
 
+            .anchor
+                @extend a
+                cursor: pointer
+
                 .sub-option-bg
                     display: none
                     position: absolute
                     top: 25px
-                    right: 120px
-                    width: 120px
+                    right: 100px
+                    width: 160px
                     height: 200px
                     background: variables.$primary-color
+                    border-radius: 10px
                     transition: 2s
                     overflow: hidden
 
@@ -72,25 +77,25 @@
 
                     ul
                         position: absolute
-                        top: 33px
+                        top: 32px
                         left: 0
-                        width: 100%
-                        height: 100%
-                        @include mixins.flex-center
+                        width: 118px
+                        height: 126px
+                        display: flex
+                        justify-content: flex-start
                         align-items: flex-start
-                        padding-top: 10px
-                        
+                        gap: 10px
+                        padding: 20px
+                        flex-direction: column
                         background: variables.$secondary-color
+                        border: 1px solid variables.$primary-color
+                        border-radius: 0 0 10px 10px
 
                         .sub-option
                             color: variables.$title-color
 
                             &:hover
                                 color: variables.$primary-color
-
-
-
-
 
     h3
         position: absolute

@@ -5,11 +5,15 @@ import marquee from "../img/marquee.png"
 import Container from "../components/container/Container"
 import PromotionCard from "../components/cards/PromotionCard"
 
+import MakeDelivery from "../img/make-online.png"
+
 import pizzaTwo from "../img/pizza-two.png"
 import pizzafamilySoda from "../img/pizzas-family-soda.png"
 import pizzafamily from "../img/pizzas-family.png"
 import pizzaBig from "../img/pizzas-big.png"
 import saborDaPizza from "../img/sabor-da-pizza.jpg"
+
+import { Link } from "react-router-dom"
 
 export default function Home() {
     return (
@@ -20,34 +24,37 @@ export default function Home() {
             </main>
             <Container customClass="center-container-home">
                 <section className="promotions">
+                    <Link to="/sabordapizza/cardapio" className="delivery-button">
+                        <img src={MakeDelivery} alt="make-online" />
+                    </Link>
                     <h1 id="promocoes">Promoções</h1>
                     <div className="promotion-card-box">
                         <PromotionCard 
                             image={pizzaTwo}
                             title="2 Pizzas Grandes"
-                            text1="até 2 Sabores Tradicionais por Pizza"
+                            text1="Terça a Sexta (Exceto Feriados)"
                             text2="Tele Entrega Grátis"
                             price="R$ 85,00**"
                         />
                         <PromotionCard 
                             image={pizzafamilySoda}
                             title="Pizza Família + Refri 2l"
-                            text1="até 4 sabores"
+                            text1="Pagamento em dinheiro"
                             text2="Somente Retirada no Balcão"
                             price="R$ 79,90*"
                         />
                         <PromotionCard 
                             image={pizzafamily}
                             title="Pizza Familia"
-                            text1="Segunda a Sexta (Exceto Feriados)"
-                            text2="Válidas para pedidos via telefone"
+                            text1="Terça a Sexta (Exceto Feriados)"
+                            text2="Válidas para pedidos online"
                             price="Grátis Broto Chocolate"
                         />
                         <PromotionCard 
                             image={pizzaBig}
                             title="Pizza Grande"
-                            text1="até 2 Sabores Tradicionais"
-                            text2="Retirada no Balcão"
+                            text1="Terça a Sexta (Exceto Feriados)"
+                            text2="Somente Retirada no Balcão"
                             price="R$ 49,90**"
                         />
                     </div>

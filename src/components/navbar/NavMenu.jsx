@@ -48,22 +48,22 @@ useEffect(() => {
                     <Link to="/sabordapizza/cardapio" onClick={() => handleTitle("null")}>Cardápio</Link>
                 </li>
                 <li>
-                    <a href="">
+                    <div className="anchor">
                         Páginas
                         <div className="sub-option-bg">
                             <ul>
                                 <li>
-                                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")} class="sub-option">Delivery</Link>
+                                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")} className="sub-option">Delivery</Link>
+                                </li>
+                                <li>
+                                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")} className="sub-option">Carrinho</Link>
                                 </li>
 
                             </ul>
 
                         </div>
-                    </a>
+                    </div>
                 </li>
-                {/* <li>
-                    <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")}>Delivery</Link>
-                </li> */}
                 <li>
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>

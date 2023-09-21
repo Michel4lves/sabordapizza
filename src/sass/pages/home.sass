@@ -62,8 +62,33 @@
         padding-top: 200px
     
     .promotions
+        position: relative
         width: 100%
         height: auto
+
+        .delivery-button
+            position: absolute
+            top: 40px
+            left: calc( 50% - 65px )
+            width: 160px
+            height: 60px
+            cursor: pointer
+            z-index: 5
+
+            img
+                height: 100%
+                width: 100%
+                top: 0
+
+            @include mixins.large
+                top: 85px
+
+            @include mixins.mediun
+                top: 170px
+
+            @include mixins.mobile
+                top: -80px
+                left: calc( 50% - 75px )
 
         h1
             padding-top: 150px
