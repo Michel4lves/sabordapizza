@@ -45,9 +45,6 @@ export default function Cart() {
         setDiscount(0.00)
     }
 
-
-
-
     return (
         <div>
             <Container customClass="center-container">

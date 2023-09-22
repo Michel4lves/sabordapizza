@@ -29,9 +29,13 @@ const ClientForm = () => {
             <input type="hidden" name="_template" value="table"></input>
             {/* End of submit configuration */}
             <TextInput type="text" placeholder="Nome *" name="name" value={name} required="required" />
-            <TextInput type="text" placeholder="Email *" name="email" value={email} required="required" />
-            <TextInput type="text" placeholder="Telefone" name="phone" value={phone} />
-            <TextArea type="textarea" placeholder="Mensagem" name="message" value={message} />
+            <TextInput type="text" placeholder="CPF *" name="personalId" value={name} required="required" />
+            <TextInput type="text" placeholder="Endereço *" name="address" value={name} required="required" />
+            <TextInput type="text" placeholder="Número *" name="adressNumber" value={name} required="required" />
+            <TextInput type="text" placeholder="Complemento" name="complement" value={name} required="required" />
+            <TextInput type="text" placeholder="Telefone *" name="phone" value={phone} required="required" />
+            <TextInput type="text" placeholder="Email" name="email" value={email} />
+            <TextArea type="textarea" placeholder="Observações" name="message" value={message} />
             <SendButton title="Enviar" handleClick={submit} />
         </form>
     )
