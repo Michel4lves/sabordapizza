@@ -5,6 +5,7 @@ import Cardapio from "./pages/Cardapio";
 import Delivery from "./pages/Delivery";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
@@ -27,7 +28,7 @@ export default function App() {
                         <Route path='sabordapizza/delivery' element={<Delivery />} />
                         <Route path='sabordapizza/contact' element={<Contact />} />
                         <Route path='sabordapizza/cart' element={<Cart />} />
-                        {/* <Route path='sabordapizza/checkout' element={<Checkout />} /> */}
+                        <Route path='sabordapizza/checkout' element={<Checkout />} />
                     </Routes>
                 </Container>
                 <footer className="footer">

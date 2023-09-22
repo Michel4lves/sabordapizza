@@ -105,7 +105,7 @@ export default function Cart() {
                             <h3>Total</h3>
                             <h3>R$ {parseFloat(totalPrice - discount).toFixed(2)}</h3>
                         </div>
-                        <LinkButton title="Finalizar" to="sabordapizza/checkout" />
+                        <LinkButton title="Finalizar" to="/sabordapizza/checkout" />
                     </div>
                 </div>
             </Container>

@@ -1,7 +1,7 @@
 @use "../variables"
 @use "../mixins"
 
-.cart-title
+.checkout-title
     padding-top: 50px
     margin-left: 50px
     margin-bottom: 30px
@@ -12,27 +12,20 @@
 
     @include mixins.mobile
         padding-top: 0
-// todo: copy this
-.cartBx
+
+.checkoutBox
     @include mixins.flex-center
+    gap: 30px
 
-    .product-list
-        width: 100%
+    .checkout-form
+        width: 50%
 
-        .table-title
-            font-size: 1.2em
-            font-weight: bold
-            line-height: 70px
-            border-bottom: 2px solid variables.$title-color
 
-        .table-list
-            margin: 50px 0
-            line-height: 120px
 
-    .checkoutBx
+    .checkoutDataBx
         border: 3px solid variables.$primary-color
         width: 350px
-        height: 300px
+        height: auto
         padding: 10px
         border-radius: 10px
         margin-left: 50px
@@ -64,12 +57,25 @@
                 color: variables.$primary-color
                 font-weight: bold
 
-        .subTotalBx, .totalBx
+        .orderBx, .subTotalBx, .totalBx
             @include mixins.flex-center
             justify-content: space-between
             margin-bottom: 20px
             margin: 20px 5px
             border-bottom: 1px solid variables.$title-color
+
+        .orderBx
+            flex-direction: column
+            align-items: flex-start
+
+            .product-order-list
+                width: 100%
+
+                .table-order-title
+                    tr
+                        td
+                            padding-bottom: 10px
+                            border-bottom: 1px solid variables.$title-color
 
             h3, h4
                 font-size: 1.2em
@@ -79,4 +85,29 @@
             h3
                 font-size: 1.3em
 
+            .table-order-list
+
+                tr
+
+                    td
+                        .product-order
+                            display: flex
+                            flex-direction: column
+                            align-items: flex-start
+                            justify-content: flex-start
+
+                            .product-name
+                                font-size: 1.2em
+                                margin-bottom: 0
+
+                                span
+                                    font-size: .8em
+                                    font-weight: normal
+
+                            p
+                                padding-bottom: 10px
+
+                    .product-price
+                        font-size: 1em
+                        font-weight: bold
 
