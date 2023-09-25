@@ -3,43 +3,104 @@ import "../../sass/components/cards/PizzaCard.sass"
 import BuyButton from "../buttons/BuyButton"
 import AddCountButton from "../buttons/AddCountButton";
 
-const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, mediumPrice, largePrice }) => {
+const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, largePrice, familyPrice }) => {
 
-    const [selectedSize, setSelectedSize] = useState('small')
+    const [selectedSize, setSelectedSize] = useState('medium')
     const [add, setAdd] = useState("Adicionar ao pedido")
     
-    const [count, setCount] = useState(0)
+    const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
+    const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName)
+    
+    let hasPizzaQuantity
+    if (index !== -1) {
+        hasPizzaQuantity = localPizzaCart.products[index].quantity
+    }else{
+        hasPizzaQuantity = 0
+    }
+    const [count, setCount] = useState(hasPizzaQuantity)
+
 
     function added() {
         setAdd("Adicionado")
         setTimeout(() => {
             setCount((count) => count + 1)
             setAdd("Adicionar ao pedido")
+            const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
+            localPizzaCart.products.push(
+                {
+                    "image": image,
+                    "pizzaName": pizzaName,
+                    "selectedSize": selectedSize,
+                    "quantity": 1,
+                    "preço": calculatePrice(mediumPrice, largePrice, familyPrice)
+                }
+            )
+            sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
         }, 1000);
     }
 
+
+    function plus(pizzaName) {
+        const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
+        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === selectedSize);
+        if (index !== -1) {
+            setCount((count) => count + 1);
+            localPizzaCart.products[index].quantity += 1;
+        } else {
+            setCount((count) => count + 1);
+            localPizzaCart.products.push(
+                {
+                    "image": image,
+                    "pizzaName": pizzaName,
+                    "selectedSize": selectedSize,
+                    "quantity": 1,
+                    "preço": calculatePrice(mediumPrice, largePrice, familyPrice)
+                }
+            );
+        }
+        sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart));
+    }
+
+
     function less() {
+        const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
+        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === selectedSize);
         if (count) {
             setCount((count) => count - 1)
+            let quantity = localPizzaCart.products[index].quantity
+            if (quantity) {
+                localPizzaCart.products[index].quantity -= 1
+                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            }
+            if (quantity === 1) {
+                localPizzaCart.products.splice(index, 1)
+                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            }
         }
     }
 
-    function plus() {
-        setCount((count) => count + 1)
-    }
 
     const handleSizeChange = (event) => {
         setSelectedSize(event.target.value);
     }
 
-    const calculatePrice = (smallPrice, mediumPrice, largePrice) => {
+
+    const calculatePrice = (mediumPrice, largePrice, familyPrice ) => {
         const sizeToPrice = {
-            small: smallPrice,
             medium: mediumPrice,
             large: largePrice,
+            family: familyPrice,
         }
         return sizeToPrice[selectedSize]
     }
+
+
+
+    
+    
+
+
+
 
     return (
         <div className="pizza-card">
@@ -53,8 +114,8 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
                         <input
                             type="radio"
                             name={`size-${pizzaName}`}
-                            value="small"
-                            checked={selectedSize === 'small'}
+                            value="medium"
+                            checked={selectedSize === 'medium'}
                             onChange={handleSizeChange}
                         />
                         <span className="size-name">Média</span>
@@ -64,8 +125,8 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
                         <input
                             type="radio"
                             name={`size-${pizzaName}`}
-                            value="medium"
-                            checked={selectedSize === 'medium'}
+                            value="large"
+                            checked={selectedSize === 'large'}
                             onChange={handleSizeChange}
                         />
                         <span className="size-name">Grande</span>
@@ -75,19 +136,19 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, smallPrice, medi
                         <input
                             type="radio"
                             name={`size-${pizzaName}`}
-                            value="large"
-                            checked={selectedSize === 'large'}
+                            value="family"
+                            checked={selectedSize === 'family'}
                             onChange={handleSizeChange}
                             />
                         <span className="size-name">Família</span>
                     </label>
                 </div>
                 <h3 className="price">
-                    R$ {calculatePrice(smallPrice, mediumPrice, largePrice)}
+                    R$ {calculatePrice(mediumPrice, largePrice, familyPrice)}
                 </h3>
             </div>
             {count ?
-                <AddCountButton handleClickLess={less} handleClickPlus={plus} text={count} /> :
+                <AddCountButton handleClickLess={less} handleClickPlus={() => plus(pizzaName)} text={count} /> :
                 <BuyButton title={add} handleClick={added} custonClass="self-center" />
             }
             <p className={`${alert}`}>{alert}</p>

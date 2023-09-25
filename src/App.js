@@ -11,6 +11,7 @@ import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./config/ScrollToTop";
+import PizzaCart from "./config/PizzaCart";
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <div className="App">
             <BrowserRouter>
                 <ScrollToTop />
+                <PizzaCart />
                 <header className="header">
                     <NavMenu />
                 </header>

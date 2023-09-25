@@ -18,6 +18,8 @@ const handleTitle = (titleId) => {
     setTitle(titleId)
 }
 
+
+
 useEffect(() => {
     const saborDaPizza = document.querySelector("#saborDaPizza")
     const promocoes = document.querySelector("#promocoes")
