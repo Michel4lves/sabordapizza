@@ -7,8 +7,6 @@ import BuyButton from "../components/buttons/BuyButton"
 import LinkButton from "../components/buttons/LinkButton"
 import "../sass/pages/Cart.sass"
 
-import pizza1 from "../img/pizza01.jpg"
-import pizza7 from "../img/pizza07.jpg"
 
 export default function Cart() {
 
@@ -16,6 +14,9 @@ export default function Cart() {
     const count = []
     const [code, setCode] = useState()
     const [discount, setDiscount] = useState(0.00)
+
+    const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart')).products
+
 
     const updateTotalPrice = (subTotal) => {
         const parsedSubTotal = parseFloat(subTotal)
@@ -60,24 +61,17 @@ export default function Cart() {
                             </tr>
                         </thead>
                         <tbody className="table-list">
-                            <tr>
-                                <CartCard
-                                    image={pizza1}
-                                    pizzaName="Pizza Mar e Terra"
-                                    pizzaSize="Grande"
-                                    price={62.90}
-                                    onUpdateTotalPrice={updateTotalPrice}
-                                />
-                            </tr>
-                            <tr>
-                                <CartCard
-                                    image={pizza7}
-                                    pizzaName="Pizza Quatro Queijos"
-                                    pizzaSize="Família"
-                                    price={74.90}
-                                    onUpdateTotalPrice={updateTotalPrice}
-                                />
-                            </tr>
+                            {localPizzaCart.map((product, index) => (
+                                <tr key={index}>
+                                    <CartCard
+                                        image={product.image}
+                                        pizzaName={product.pizzaName}
+                                        pizzaSize={product.selectedSize}
+                                        price={parseFloat(product.preço)}
+                                        onUpdateTotalPrice={updateTotalPrice}
+                                    />
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                     <div className="checkoutBx">

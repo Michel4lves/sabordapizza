@@ -4,22 +4,50 @@ import AddCountButton from "../buttons/AddCountButton";
 
 const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) => {
 
-    const [count, setCount] = useState(1)
     const [subTotal, setSubTotal] = useState(price)
 
-    function less() {
-        if (count) {
-            setCount((count) => count - 1)
-        }
-    }
+    const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
+    const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName)
     
-    if (!count) {
-        setCount(1)
+    let hasPizzaQuantity
+    if (index !== -1) {
+        hasPizzaQuantity = localPizzaCart.products[index].quantity
+    }else{
+        hasPizzaQuantity = 0
+    }
+    const [count, setCount] = useState(hasPizzaQuantity)
+
+
+    function plus(pizzaName) {
+        const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
+        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName)
+        setCount((count) => count + 1)
+        localPizzaCart.products[index].quantity += 1
+        sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
     }
 
-    function plus() {
-        setCount((count) => count + 1)
+    function less() {
+
     }
+
+
+
+
+
+    // function less() {
+    //     if (count) {
+    //         setCount((count) => count - 1)
+    //     }
+    // }
+    
+    // if (!count) {
+    //     setCount(1)
+    // }
+
+    // function plus() {
+    //     setCount((count) => count + 1)
+    // }
+
 
     useEffect(() => {
         function countPrice() {
