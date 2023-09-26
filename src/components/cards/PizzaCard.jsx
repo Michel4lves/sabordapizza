@@ -95,13 +95,6 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
     }
 
 
-
-    
-    
-
-
-
-
     return (
         <div className="pizza-card">
             <img src={image} alt={pizzaName} />

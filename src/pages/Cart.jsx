@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import CartCard from "../components/cards/CartCard";
 import Container from "../components/container/Container";
@@ -17,18 +17,21 @@ export default function Cart() {
 
     const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart')).products
 
+    const [cartItems, setCartItems] = useState(localPizzaCart);
 
-    // const [updateKey, setUpdateKey] = useState(localPizzaCart.length)
-    
-    // function update() {
-    //     setUpdateKey(localPizzaCart.length)
-    // }
+    let list = 0
+
+
+    const updateCartItemQuantity = (index, newQuantity) => {
+        const updatedCart = [...cartItems];
+        updatedCart[index].quantity = newQuantity;
+        setCartItems(updatedCart);
+    }
 
 
     const updateTotalPrice = (subTotal) => {
         const parsedSubTotal = parseFloat(subTotal)
         count.push(parsedSubTotal)
-
         const countTotal = somarElementosArray(count)
         setTotalPrice(countTotal.toFixed(2))
     }
@@ -70,23 +73,24 @@ export default function Cart() {
                                 </tr>
                             </thead>
                             <tbody className="table-list">
-                                {localPizzaCart
-                                    // .filter((product) => product.quantity !== 0)
+                                {cartItems
                                     .map((product, index) => (
-                                        <tr key={index}>
-                                            <CartCard
-                                                image={product.image}
-                                                pizzaName={product.pizzaName}
-                                                pizzaSize={product.selectedSize}
-                                                price={parseFloat(product.preço)}
-                                                onUpdateTotalPrice={updateTotalPrice}
-                                            />
-                                        </tr>
-                                    )
-                                )}
+                                        (product.quantity > 0 && (
+                                            <tr key={index}>
+                                                <CartCard
+                                                    image={product.image}
+                                                    pizzaName={product.pizzaName}
+                                                    pizzaSize={product.selectedSize}
+                                                    price={parseFloat(product.preço)}
+                                                    onUpdateTotalPrice={updateTotalPrice}
+                                                    onUpdateQuantity={(newQuantity) => updateCartItemQuantity(index, newQuantity)}
+                                                />
+                                            </tr>
+                                        ))
+                                    ))
+                                }
                             </tbody>
                         </table>
-                        {/* <BuyButton title="Atualizar Carrinho" handleClick={forceRender} custonClass="right-button" /> */}
                     </div>
                     <div className="checkoutBx">
                         {!discount ? 

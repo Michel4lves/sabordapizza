@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../../sass/components/cards/CartCard.sass"
 import AddCountButton from "../buttons/AddCountButton";
 
-const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) => {
+const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice, onUpdateQuantity }) => {
 
     const [subTotal, setSubTotal] = useState(price)
 
@@ -24,7 +24,9 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
         setCount((count) => count + 1)
         localPizzaCart.products[index].quantity += 1
         sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+        onUpdateQuantity(localPizzaCart.products[index].quantity)
     }
+
 
     function less() {
         const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
@@ -35,11 +37,15 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
             if (quantity) {
                 localPizzaCart.products[index].quantity -= 1
                 sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+                onUpdateQuantity(localPizzaCart.products[index].quantity)
             }
             if (quantity === 1) {
                 localPizzaCart.products.splice(index, 1)
                 sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+                onUpdateQuantity(0)
             }
+        }else{
+            return null;
         }
     }
 
@@ -52,6 +58,8 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
         }
         countPrice()
     }, [count, price, onUpdateTotalPrice])
+
+
 
     return (
         <>
