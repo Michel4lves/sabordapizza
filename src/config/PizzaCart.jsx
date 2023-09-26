@@ -4,10 +4,7 @@ export default function PizzaCart() {
 
     useEffect(() => {
         const pizzaCart = {
-            "products": [],
-            "discount": false,
-            "subTotal": 0.00,
-            "total": 0.00
+            "products": []
         }
 
         if (!sessionStorage.hasOwnProperty('pizzaCart')) {

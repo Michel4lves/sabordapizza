@@ -7,7 +7,7 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
     const [subTotal, setSubTotal] = useState(price)
 
     const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
-    const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName)
+    const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === pizzaSize)
     
     let hasPizzaQuantity
     if (index !== -1) {
@@ -18,35 +18,30 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
     const [count, setCount] = useState(hasPizzaQuantity)
 
 
-    function plus(pizzaName) {
+    function plus(pizzaName, pizzaSize) {
         const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'))
-        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName)
+        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === pizzaSize)
         setCount((count) => count + 1)
         localPizzaCart.products[index].quantity += 1
         sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
     }
 
     function less() {
-
+        const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
+        const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === pizzaSize)
+        if (count) {
+            setCount((count) => count - 1)
+            let quantity = localPizzaCart.products[index].quantity
+            if (quantity) {
+                localPizzaCart.products[index].quantity -= 1
+                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            }
+            if (quantity === 1) {
+                localPizzaCart.products.splice(index, 1)
+                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            }
+        }
     }
-
-
-
-
-
-    // function less() {
-    //     if (count) {
-    //         setCount((count) => count - 1)
-    //     }
-    // }
-    
-    // if (!count) {
-    //     setCount(1)
-    // }
-
-    // function plus() {
-    //     setCount((count) => count + 1)
-    // }
 
 
     useEffect(() => {
@@ -75,7 +70,7 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice }) =>
                 </h3>
             </td>
             <td>
-                <AddCountButton handleClickLess={less} handleClickPlus={plus} text={count} />
+                <AddCountButton handleClickLess={less} handleClickPlus={() => plus(pizzaName, pizzaSize)} text={count} />
             </td>
             <td>
                 <h3 className="cart-price">

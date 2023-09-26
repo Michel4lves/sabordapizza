@@ -12,22 +12,27 @@
 
     @include mixins.mobile
         padding-top: 0
-// todo: copy this
+
 .cartBx
     @include mixins.flex-center
 
-    .product-list
+    .listBx
+        @include mixins.flex-center
+        flex-direction: column
         width: 100%
 
-        .table-title
-            font-size: 1.2em
-            font-weight: bold
-            line-height: 70px
-            border-bottom: 2px solid variables.$title-color
+        .product-list
+            width: 100%
 
-        .table-list
-            margin: 50px 0
-            line-height: 120px
+            .table-title
+                font-size: 1.2em
+                font-weight: bold
+                line-height: 70px
+                border-bottom: 2px solid variables.$title-color
+
+            .table-list
+                margin: 50px 0
+                line-height: 120px
 
     .checkoutBx
         border: 3px solid variables.$primary-color

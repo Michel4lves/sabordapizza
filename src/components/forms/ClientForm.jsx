@@ -22,7 +22,7 @@ const ClientForm = () => {
     }
 
     return (
-        <form className="form" name="form" action="https://formsubmit.co/michelsantosa@gmail.com" method="POST" onSubmit={submit}>
+        <form className="form" name="clientForm" action="https://formsubmit.co/michelsantosa@gmail.com" method="POST" onSubmit={submit}>
             {/* submit configuration */}
             <input type="hidden" name="_next" value="https://michel4lves.github.io/Thanks_Page/"></input>
             <input type="hidden" name="_captcha" value="false"></input>
