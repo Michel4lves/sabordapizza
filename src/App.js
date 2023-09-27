@@ -12,16 +12,26 @@ import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./config/ScrollToTop";
 import PizzaCart from "./config/PizzaCart";
+import { useState } from "react";
 
 
 export default function App() {
+
+    const [countNumber, setCountNumber] = useState(0)
+
+    function countProducts(count) {
+        setCountNumber(count)
+    }
+
+
+
     return (
         <div className="App">
             <BrowserRouter>
                 <ScrollToTop />
                 <PizzaCart />
                 <header className="header">
-                    <NavMenu />
+                    <NavMenu productsCounted={countNumber} />
                 </header>
                 <Container>
                     <Routes>
@@ -29,7 +39,7 @@ export default function App() {
                         <Route path='sabordapizza/cardapio' element={<Cardapio />} />
                         <Route path='sabordapizza/delivery' element={<Delivery />} />
                         <Route path='sabordapizza/contact' element={<Contact />} />
-                        <Route path='sabordapizza/cart' element={<Cart />} />
+                        <Route path='sabordapizza/cart' element={<Cart onProductsCount={countProducts} />} />
                         <Route path='sabordapizza/checkout' element={<Checkout />} />
                     </Routes>
                 </Container>

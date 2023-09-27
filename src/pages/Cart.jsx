@@ -8,24 +8,33 @@ import LinkButton from "../components/buttons/LinkButton"
 import "../sass/pages/Cart.sass"
 
 
-export default function Cart() {
+export default function Cart({ onProductsCount }) {
 
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(parseFloat(0.00).toFixed(2))
     const count = []
     const [code, setCode] = useState()
     const [discount, setDiscount] = useState(0.00)
-
     const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart')).products
+    const [cartItems, setCartItems] = useState(localPizzaCart)
+    const allQuantitiesZero = cartItems.every((item) => item.quantity === 0)
+    const productsCount = cartItems.reduce((accumulator, item) => accumulator + item.quantity, 0)
 
-    const [cartItems, setCartItems] = useState(localPizzaCart);
 
-    let list = 0
+    onProductsCount(productsCount)
+    console.log(productsCount)
 
 
     const updateCartItemQuantity = (index, newQuantity) => {
         const updatedCart = [...cartItems];
         updatedCart[index].quantity = newQuantity;
         setCartItems(updatedCart);
+        
+        const allQuantitiesZero = cartItems.every((item) => item.quantity === 0)
+        if (allQuantitiesZero) {
+            setTotalPrice(parseFloat(0.00).toFixed(2))
+            setDiscount(0.00)
+            setCode("")
+        }
     }
 
 
@@ -36,13 +45,16 @@ export default function Cart() {
         setTotalPrice(countTotal.toFixed(2))
     }
 
+
     function somarElementosArray(arr) {
         return arr.reduce((acumulador, elemento) => acumulador + elemento, 0);
     }
 
+
     const getCode = (e) => {
         setCode(e.target.value)
     }
+
 
     const checkCode = () => {
         if (code === "pizza" || code === "desconto") {
@@ -52,9 +64,12 @@ export default function Cart() {
         }
     }
 
+
     const outCode = () => {
         setDiscount(0.00)
+        setCode("")
     }
+
 
 
     return (
@@ -63,18 +78,19 @@ export default function Cart() {
                 <h1 className="cart-title">Seu pedido:</h1>
                 <div className="cartBx">
                     <div className="listBx">
-                        <table className="product-list">
-                            <thead className="table-title">
-                                <tr>
-                                    <td>Produto</td>
-                                    <td>Preço</td>
-                                    <td>Quantidade</td>
-                                    <td>Subtotal</td>
-                                </tr>
-                            </thead>
-                            <tbody className="table-list">
-                                {cartItems
-                                    .map((product, index) => (
+                        {allQuantitiesZero ?
+                            (<h1 className="empty">Seu carrinho está vazio!</h1>) :
+                            <table className="product-list">
+                                <thead className="table-title">
+                                    <tr>
+                                        <td>Produto</td>
+                                        <td>Preço</td>
+                                        <td>Quantidade</td>
+                                        <td>Subtotal</td>
+                                    </tr>
+                                </thead>
+                                <tbody className="table-list">
+                                    {cartItems.map((product, index) => (
                                         (product.quantity > 0 && (
                                             <tr key={index}>
                                                 <CartCard
@@ -87,10 +103,10 @@ export default function Cart() {
                                                 />
                                             </tr>
                                         ))
-                                    ))
-                                }
-                            </tbody>
-                        </table>
+                                    ))}
+                                </tbody>
+                            </table>
+                        }
                     </div>
                     <div className="checkoutBx">
                         {!discount ? 
@@ -98,7 +114,12 @@ export default function Cart() {
                                 <summary>CUPOM DESCONTO</summary>
                                 <div className="couponBx">
                                     <TextInput type="text" onCodeChange={getCode} />
-                                    <BuyButton title="Adicionar" handleClick={checkCode} />
+                                    <BuyButton
+                                        title="Adicionar" 
+                                        handleClick={checkCode} 
+                                        custonClass={allQuantitiesZero ? "disable" : ""} 
+                                        disableForm={allQuantitiesZero ? true : false}
+                                    />
                                 </div>
                             </details> : 
                             <div className="removeBx">

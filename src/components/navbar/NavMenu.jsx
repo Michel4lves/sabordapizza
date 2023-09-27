@@ -9,26 +9,26 @@ import "../../sass/components/navbar/NavMenu.sass"
 import logo from "../../img/logo.png"
 
 
-export default function NavMenu() {
+export default function NavMenu({ productsCounted }) {
     
-const location = useLocation()
-const [title, setTitle] = useState("null")
+    const location = useLocation()
+    const [title, setTitle] = useState("null")
 
-const handleTitle = (titleId) => {
-    setTitle(titleId)
-}
-
-
-
-useEffect(() => {
-    const saborDaPizza = document.querySelector("#saborDaPizza")
-    const promocoes = document.querySelector("#promocoes")
-    if (title === "saborDaPizza") {
-        saborDaPizza.scrollIntoView({ behavior: "smooth" })
-    }else if (title === "promocoes") {
-        promocoes.scrollIntoView({ behavior: "smooth", padding: "130px" })
+    const handleTitle = (titleId) => {
+        setTitle(titleId)
     }
-}, [location.pathname, title])
+
+
+
+    useEffect(() => {
+        const saborDaPizza = document.querySelector("#saborDaPizza")
+        const promocoes = document.querySelector("#promocoes")
+        if (title === "saborDaPizza") {
+            saborDaPizza.scrollIntoView({ behavior: "smooth" })
+        }else if (title === "promocoes") {
+            promocoes.scrollIntoView({ behavior: "smooth", padding: "130px" })
+        }
+    }, [location.pathname, title])
 
 
     return (
@@ -70,7 +70,7 @@ useEffect(() => {
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
                 <li>
-                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">2</span></Link>
+                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">{productsCounted}</span></Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>
