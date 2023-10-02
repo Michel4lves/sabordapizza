@@ -15,12 +15,11 @@
 
 .checkoutBox
     @include mixins.flex-center
+    align-items: flex-start
     gap: 30px
 
     .checkout-form
         width: 50%
-
-
 
     .checkoutDataBx
         border: 3px solid variables.$primary-color
@@ -30,37 +29,9 @@
         border-radius: 10px
         margin-left: 50px
 
-        details
-            border-bottom: 1px solid variables.$title-color
-
-            summary
-                font-size: 1.2em
-                font-weight: bold
-                margin: 20px 15px
-                cursor: pointer
-
-            .couponBx
-                @include mixins.flex-center
-                gap: 10px
-                margin-bottom: 20px
-                margin: 20px 15px
-
-        .removeBx
-            @include mixins.flex-center
-            gap: 10px
-
-            .success
-                width: 100%
-                height: 35px
-                @include mixins.flex-center
-                border-radius: 10px
-                color: variables.$primary-color
-                font-weight: bold
-
-        .orderBx, .subTotalBx, .totalBx
+        .orderBx, .subTotalBx, .totalBx, .discountBx
             @include mixins.flex-center
             justify-content: space-between
-            margin-bottom: 20px
             margin: 20px 5px
             border-bottom: 1px solid variables.$title-color
 
@@ -83,13 +54,18 @@
                 text-transform: uppercase
 
             h3
-                font-size: 1.3em
+                font-size: 1.5em
+                font-weight: bold
 
             .table-order-list
 
                 tr
+                    display: flex
+                    justify-content: space-between
+                    width: 121%
 
                     td
+
                         .product-order
                             display: flex
                             flex-direction: column
@@ -97,7 +73,7 @@
                             justify-content: flex-start
 
                             .product-name
-                                font-size: 1.2em
+                                font-size: 1.1em
                                 margin-bottom: 0
 
                                 span
@@ -110,4 +86,48 @@
                     .product-price
                         font-size: 1em
                         font-weight: bold
+
+        .paymentBx
+            @include mixins.flex-center
+            align-items: flex-start
+            flex-direction: column
+            margin: 20px 5px
+
+            .payment
+                margin: 20px 5px
+
+                input[type="radio"]
+                    position: relative
+                    color: variables.$text-color
+                    background-color: transparent
+                    appearance: none
+                    width: 16px
+                    height: 16px
+                    border: 2px solid variables.$text-color
+                    border-radius: 50%
+                    background-color: transparent
+                    outline: none
+
+                    &:checked
+                        &::before
+                            content: ''
+                            position: absolute
+                            top: 1px
+                            left: 1px
+                            width: 10px
+                            height: 10px
+                            background-color: variables.$text-color
+                            border-radius: 50%
+
+                span
+                    margin: 0px 10px
+                    font-weight: bold
+
+                p
+                    margin: 5px 27px
+
+
+
+
+
 

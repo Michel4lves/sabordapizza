@@ -21,7 +21,7 @@ export default function TextInput({ type, placeholder, name, required, onCodeCha
                 return <MdLocationOn />
             case 'personalId':
                 return <LiaAddressCard />
-            case 'adressNumber':
+            case 'addressNumber':
                 return <AiOutlineFieldNumber />
             case 'complement':
                 return <GoNumber />

@@ -8,7 +8,7 @@ import LinkButton from "../components/buttons/LinkButton"
 import "../sass/pages/Cart.sass"
 
 
-export default function Cart({ onProductsCount }) {
+export default function Cart({ onAddMenuCount, onDiscount }) {
 
     const [totalPrice, setTotalPrice] = useState(parseFloat(0.00).toFixed(2))
     const count = []
@@ -17,11 +17,6 @@ export default function Cart({ onProductsCount }) {
     const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart')).products
     const [cartItems, setCartItems] = useState(localPizzaCart)
     const allQuantitiesZero = cartItems.every((item) => item.quantity === 0)
-    const productsCount = cartItems.reduce((accumulator, item) => accumulator + item.quantity, 0)
-
-
-    onProductsCount(productsCount)
-    console.log(productsCount)
 
 
     const updateCartItemQuantity = (index, newQuantity) => {
@@ -59,14 +54,17 @@ export default function Cart({ onProductsCount }) {
     const checkCode = () => {
         if (code === "pizza" || code === "desconto") {
             setDiscount(10.00)
+            onDiscount(10.00)
         }else{
             setDiscount(0.00)
+            onDiscount(0.00)
         }
     }
 
 
     const outCode = () => {
         setDiscount(0.00)
+        onDiscount(0.00)
         setCode("")
     }
 
@@ -100,6 +98,7 @@ export default function Cart({ onProductsCount }) {
                                                     price={parseFloat(product.preço)}
                                                     onUpdateTotalPrice={updateTotalPrice}
                                                     onUpdateQuantity={(newQuantity) => updateCartItemQuantity(index, newQuantity)}
+                                                    onAddMenuCount={onAddMenuCount}
                                                 />
                                             </tr>
                                         ))

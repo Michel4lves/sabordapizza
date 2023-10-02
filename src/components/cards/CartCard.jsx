@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../../sass/components/cards/CartCard.sass"
 import AddCountButton from "../buttons/AddCountButton";
 
-const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice, onUpdateQuantity }) => {
+const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice, onUpdateQuantity, onAddMenuCount }) => {
 
     const [subTotal, setSubTotal] = useState(price)
 
@@ -25,6 +25,7 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice, onUp
         localPizzaCart.products[index].quantity += 1
         sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
         onUpdateQuantity(localPizzaCart.products[index].quantity)
+        onAddMenuCount(1)
     }
 
 
@@ -38,11 +39,15 @@ const CartCard = ({ image, pizzaName, pizzaSize, price, onUpdateTotalPrice, onUp
                 localPizzaCart.products[index].quantity -= 1
                 sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
                 onUpdateQuantity(localPizzaCart.products[index].quantity)
+                onAddMenuCount(-1)
             }
             if (quantity === 1) {
                 localPizzaCart.products.splice(index, 1)
                 sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
                 onUpdateQuantity(0)
+                if (index !== -1) {
+                    onAddMenuCount(0)
+                }
             }
         }else{
             return null;

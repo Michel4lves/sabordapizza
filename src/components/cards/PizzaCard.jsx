@@ -3,7 +3,7 @@ import "../../sass/components/cards/PizzaCard.sass"
 import BuyButton from "../buttons/BuyButton"
 import AddCountButton from "../buttons/AddCountButton";
 
-const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, largePrice, familyPrice }) => {
+const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, largePrice, familyPrice, onAddMenuCount }) => {
 
     const [selectedSize, setSelectedSize] = useState('medium')
     const [add, setAdd] = useState("Adicionar ao pedido")
@@ -36,6 +36,8 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
                 }
             )
             sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            //
+            onAddMenuCount(1)
         }, 1000);
     }
 
@@ -44,10 +46,11 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
         const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
         const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === selectedSize);
         if (index !== -1) {
-            setCount((count) => count + 1);
-            localPizzaCart.products[index].quantity += 1;
+            setCount((count) => count + 1)
+            localPizzaCart.products[index].quantity += 1
+            onAddMenuCount(0)
         } else {
-            setCount((count) => count + 1);
+            setCount((count) => count + 1)
             localPizzaCart.products.push(
                 {
                     "image": image,
@@ -56,9 +59,10 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
                     "quantity": 1,
                     "preço": calculatePrice(mediumPrice, largePrice, familyPrice)
                 }
-            );
+            )
         }
-        sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart));
+        sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+        onAddMenuCount(1)
     }
 
 
@@ -66,15 +70,22 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
         const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart'));
         const index = localPizzaCart.products.findIndex((product) => product.pizzaName === pizzaName && product.selectedSize === selectedSize);
         if (count) {
-            setCount((count) => count - 1)
-            let quantity = localPizzaCart.products[index].quantity
-            if (quantity) {
-                localPizzaCart.products[index].quantity -= 1
-                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
-            }
-            if (quantity === 1) {
-                localPizzaCart.products.splice(index, 1)
-                sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+            if (index !== -1) {
+
+                setCount((count) => count - 1)
+                let quantity = localPizzaCart.products[index].quantity
+                if (quantity) {
+                    localPizzaCart.products[index].quantity -= 1
+                    sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+                    onAddMenuCount(-1)
+                }
+                if (quantity === 1) {
+                    localPizzaCart.products.splice(index, 1)
+                    sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
+                    if (index !== -1) {
+                        onAddMenuCount(0)
+                    }
+                }
             }
         }
     }

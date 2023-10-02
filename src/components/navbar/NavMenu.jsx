@@ -9,7 +9,7 @@ import "../../sass/components/navbar/NavMenu.sass"
 import logo from "../../img/logo.png"
 
 
-export default function NavMenu({ productsCounted }) {
+export default function NavMenu({ counted }) {
     
     const location = useLocation()
     const [title, setTitle] = useState("null")
@@ -70,7 +70,7 @@ export default function NavMenu({ productsCounted }) {
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
                 <li>
-                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">{productsCounted}</span></Link>
+                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">{counted}</span></Link>
                 </li>
             </ul>
             <h3>Delivery: (53) <span>3210-5679</span></h3>
