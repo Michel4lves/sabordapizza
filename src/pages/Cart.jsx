@@ -116,7 +116,7 @@ export default function Cart({ onAddMenuCount, onDiscount }) {
                                     <BuyButton
                                         title="Adicionar" 
                                         handleClick={checkCode} 
-                                        custonClass={allQuantitiesZero ? "disable" : ""} 
+                                        customClass={allQuantitiesZero ? "disable" : ""} 
                                         disableForm={allQuantitiesZero ? true : false}
                                     />
                                 </div>

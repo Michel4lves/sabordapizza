@@ -13,11 +13,19 @@
     @include mixins.large
         width: 100%
 
-    a
+    .logo
+        position: relative
+        width: 120px
 
-        .logo
-            position: relative
+        img
             width: 120px
+            padding-left: 100px 
+
+            @include mixins.large
+                padding-left: 50px 
+
+            @include mixins.mobile
+                padding-left: 0 
 
     ul
         position: relative
@@ -75,7 +83,7 @@
                     &:hover
                         display: block
 
-                    ul
+                    .sub-option-ul
                         position: absolute
                         top: 32px
                         left: 0
@@ -97,7 +105,122 @@
                             &:hover
                                 color: variables.$primary-color
 
-    h3
+            .anchor-2
+                @extend a
+                cursor: pointer
+
+                &:hover
+
+                    .sub-option-cart-bg
+                        display: block
+
+
+                .cart-quant
+                    position: absolute
+                    top: -12px
+                    right: -12px
+                    z-index: 1
+                    width: 20px
+                    height: 20px
+                    color: variables.$secondary-color
+                    background-color: variables.$title-color
+                    border-radius: 50%
+                    @include mixins.flex-center
+                    font-size: .8em
+
+                .sub-option-cart-bg
+                    display: none
+                    position: absolute
+                    top: 25px
+                    right: -20px
+                    width: 280px
+                    height: auto
+                    background: variables.$secondary-color
+                    border: 2px solid variables.$primary-color
+                    padding: 10px 10px 50px 10px
+                    border-radius: 10px
+                    transition: 2s
+                    overflow: hidden
+                    cursor: auto
+
+
+                    .sub-option-ul-cart
+                        position: relative
+                        @include mixins.flex-center
+                        align-items: flex-start
+                        flex-direction: column
+                        right: 0px
+                        color: variables.$text-color
+
+                        li
+                            @include mixins.flex-center
+                            justify-content: flex-start
+                            width: 100%
+
+                            .cart-image
+                                width: 50px
+                                height: 50px
+                                overflow: hidden
+                                margin-right: 10px
+
+                                img
+                                    width: 95%
+                                    height: 95%
+                                    border-radius: 50%
+                                    border: 1px solid variables.$primary-color
+
+                            .cart-order
+
+                                .cart-name
+                                    font-size: 0.8em
+                                    font-weight: 900
+
+                                .cart-size-price
+                                    font-size: 0.7em
+
+                                .cart-price
+                                    font-size: 1.1em
+                                    font-weight: 900
+
+                        .cart-sub-total
+                            @include mixins.flex-center
+                            justify-content: space-between
+                            width: 240px
+                            margin: 0 20px
+                            padding-top: 20px 
+                            border-top: 1px solid variables.$text-color
+
+                        .cart-links
+                            @include mixins.flex-center
+                            width: 100%
+                            margin-top: 20px
+
+                    .cart-empty
+                        width: 100%
+                        text-align: center
+                        padding-top: 30px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .delivery
         position: absolute
         top: 5px
         right: 100px

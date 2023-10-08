@@ -153,7 +153,7 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
             </div>
             {count ?
                 <AddCountButton handleClickLess={less} handleClickPlus={() => plus(pizzaName)} text={count} /> :
-                <BuyButton title={add} handleClick={added} custonClass="self-center" />
+                <BuyButton title={add} handleClick={added} customClass="self-center" />
             }
             <p className={`${alert}`}>{alert}</p>
         </div>

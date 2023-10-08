@@ -32,34 +32,36 @@ export default function Home() {
                         <PromotionCard 
                             image={pizzaTwo}
                             title="2 Pizzas Grandes"
-                            text1="Terça a Sexta (Exceto Feriados)"
-                            text2="Tele Entrega Grátis"
-                            price="R$ 85,00**"
+                            title2="Entrega Grátis**"
+                            text1="Na compra de duas pizzas grandes"
+                            text2="a tele entrega sai de graça"
                         />
                         <PromotionCard 
                             image={pizzafamilySoda}
-                            title="Pizza Família + Refri 2l"
-                            text1="Pagamento em dinheiro"
-                            text2="Somente Retirada no Balcão"
-                            price="R$ 79,90*"
+                            title="Pizza Família"
+                            title2="Refri 2l*"
+                            text1="Compre uma pizza tamanho família"
+                            text2="ganhe um refrigerante 2 litros de brinde"
                         />
                         <PromotionCard 
                             image={pizzafamily}
                             title="Pizza Familia"
-                            text1="Terça a Sexta (Exceto Feriados)"
-                            text2="Válidas para pedidos online"
-                            price="Grátis Broto Chocolate"
+                            title2="Broto Chocolate***"
+                            text1="Escolha um broto doce"
+                            text2="no lugar do refrigerante"
                         />
                         <PromotionCard 
                             image={pizzaBig}
-                            title="Pizza Grande"
-                            text1="Terça a Sexta (Exceto Feriados)"
-                            text2="Somente Retirada no Balcão"
-                            price="R$ 49,90**"
+                            title="Cupom de Desconto"
+                            title2="R$ 10,00"
+                            text1='Utilize o cupom "pizza" '
+                            text2="e ganhe R$ 10,00 de desconto"
                         />
                     </div>
-                    <p className="obs">* Taxa de entrega não inclusa; Promoções não cumulativas; Sabores tradicionais </p>
-                    <p className="obs">**Sabores Premium, Doces e Bordas não Inclusos </p>
+                    <p className="obs">* Terça a Sexta (Exceto Feriados) </p>
+                    <p className="obs">**Sabores Premium não Inclusos </p>
+                    <p className="obs">***Somente aos Sábados </p>
+                    <p className="obs">Promoções não cumulativas </p>
                 </section>
                 <section className="about">
                     <h1 id="saborDaPizza">Sabor da Pizza</h1>

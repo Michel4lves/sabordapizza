@@ -4,20 +4,22 @@ import { Link, useLocation } from "react-router-dom";
 import { GiBeachBag } from "react-icons/gi";
 
 import "../../sass/components/navbar/NavBar.sass"
-import "../../sass/components/navbar/NavMenu.sass"
 
 import logo from "../../img/logo.png"
+import LinkButton from "../buttons/LinkButton";
 
 
 export default function NavMenu({ counted }) {
-    
+
+    const localPizzaCart = JSON.parse(sessionStorage.getItem('pizzaCart')).products
+    const productsCount = localPizzaCart.reduce((accumulator, item) => accumulator + parseFloat(item.preço), 0)
+
     const location = useLocation()
     const [title, setTitle] = useState("null")
 
     const handleTitle = (titleId) => {
         setTitle(titleId)
     }
-
 
 
     useEffect(() => {
@@ -53,12 +55,15 @@ export default function NavMenu({ counted }) {
                     <div className="anchor">
                         Páginas
                         <div className="sub-option-bg">
-                            <ul>
+                            <ul className="sub-option-ul">
                                 <li>
                                     <Link to="/sabordapizza/delivery" onClick={() => handleTitle("null")} className="sub-option">Delivery</Link>
                                 </li>
                                 <li>
                                     <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")} className="sub-option">Carrinho</Link>
+                                </li>
+                                <li>
+                                    <Link to="/sabordapizza/page404" onClick={() => handleTitle("null")} className="sub-option">404</Link>
                                 </li>
 
                             </ul>
@@ -70,10 +75,44 @@ export default function NavMenu({ counted }) {
                     <Link to="/sabordapizza/contact" onClick={() => handleTitle("null")}>Contato</Link>
                 </li>
                 <li>
-                    <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}><GiBeachBag /><span className="cart-quant">{counted}</span></Link>
+                    <div className="anchor-2">
+                        <Link to="/sabordapizza/cart" onClick={() => handleTitle("null")}>
+                            <GiBeachBag /><span className="cart-quant">{counted}</span>
+                        </Link>
+                        <div className="sub-option-cart-bg">
+                            {productsCount ?
+                                <ul className="sub-option-ul-cart">
+                                    {localPizzaCart.map((product, index) => (
+                                        (product.quantity > 0 && (
+                                            <li key={index}>
+                                                <div className="cart-image">
+                                                    <img src={product.image} alt={product.pizzaName} />
+                                                </div>
+                                                <div className="cart-order">
+                                                    <h3 className="cart-name">{product.pizzaName} </h3>
+                                                    <p className="cart-size-price">{product.selectedSize} {product.quantity} x<span className="cart-price"> R$ {parseFloat(product.preço).toFixed(2)}</span></p>
+                                                </div>
+                                            </li>
+                                        ))
+                                    ))}
+                                    <div className="cart-sub-total">
+                                        <h4>Subtotal</h4>
+                                        <h4>R$ {productsCount.toFixed(2)}</h4>
+                                    </div>
+
+                                    <div className="cart-links">
+                                        <LinkButton title="Carrinho" to="/sabordapizza/cart" customClass="cart-link" />
+                                        <LinkButton title="Finalizar" to="/sabordapizza/checkout" customClass="check-link" />
+                                    </div>
+                                </ul>
+                                :
+                                    <h4 className="cart-empty">Seu carrinho está vazio!</h4>
+                            }
+                        </div>
+                    </div>
                 </li>
             </ul>
-            <h3>Delivery: (53) <span>3210-5679</span></h3>
+            <h3 className="delivery">Delivery: (53) <span>3210-5679</span></h3>
         </nav>
     )
 }

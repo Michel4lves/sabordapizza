@@ -6,11 +6,14 @@ import Delivery from "./pages/Delivery";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Page404 from "./pages/Page404";
 
 import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./config/ScrollToTop";
+import popAdded from "./components/popups/popAdded"
+
 import { useState } from "react";
 
 export default function App() {
@@ -43,6 +46,7 @@ export default function App() {
         <div className="App">
             <BrowserRouter>
                 <ScrollToTop />
+                <popAdded />
                 <header className="header">
                     <NavMenu counted={count} />
                 </header>
@@ -54,6 +58,7 @@ export default function App() {
                         <Route path='sabordapizza/contact' element={<Contact />} />
                         <Route path='sabordapizza/cart' element={<Cart onAddMenuCount={addMenuCount} onDiscount={addDiscount} />} />
                         <Route path='sabordapizza/checkout' element={<Checkout discount={discounted} />} />
+                        <Route path='sabordapizza/page404' element={<Page404 />} />
                     </Routes>
                 </Container>
                 <footer className="footer">

@@ -69,7 +69,7 @@ export default function Checkout({ discount }) {
                                     />
                                     <span className="size-name">Pagamento na entrega</span>
                                 </label>
-                                <p>Pague em dinheiro na entrega.</p>
+                                <p>Pague em dinheiro/cartão na entrega.</p>
                             </div>
                             <p>Os seus dados pessoais não serão utilizados para processar a sua encomenda, sua experiência neste site é pura ficção, por tratar-se de um exemplo front-end.</p>
                         </div>

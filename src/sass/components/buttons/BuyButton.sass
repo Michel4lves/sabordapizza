@@ -31,3 +31,16 @@
 
     &:hover
         background: variables.$secondary-color
+
+.cart-link, .check-link
+    @extend .buy-button
+    color: variables.$secondary-color
+    background: variables.$primary-color
+    margin: 0 5px
+
+    &:hover
+        background: variables.$secondary-color
+        color: variables.$title-color
+
+.check-link
+    background: variables.$title-color
