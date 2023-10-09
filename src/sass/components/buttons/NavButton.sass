@@ -1,0 +1,37 @@
+@use "../../variables"
+@use "../../_mixins"
+
+.navbutton
+    position: relative
+    right: 50px
+    width: 50px
+    height: 50px
+    border: 1px solid variables.$secondary-color
+    border-radius: 15px
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    padding: 5px
+    cursor: pointer
+    display: none
+
+    &::before
+        content: "="
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        color: variables.$secondary-color
+        font-size: 4em
+        text-align: center
+
+    @include mixins.mediun
+        display: flex
+
+    svg
+        position: relative
+        width: 20px
+        height: 20px
+        color: variables.$secondary-color
+        margin-top: 5px
+

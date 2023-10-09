@@ -7,6 +7,7 @@ import "../../sass/components/navbar/NavBar.sass"
 
 import logo from "../../img/logo.png"
 import LinkButton from "../buttons/LinkButton";
+import NavButton from "../buttons/NavButton";
 
 
 export default function NavMenu({ counted }) {
@@ -17,8 +18,14 @@ export default function NavMenu({ counted }) {
     const location = useLocation()
     const [title, setTitle] = useState("null")
 
+    const [isActived, setIsActived] = useState()
+
     const handleTitle = (titleId) => {
         setTitle(titleId)
+    }
+
+    function menuToogle(isActived) {
+        setIsActived(isActived)
     }
 
 
@@ -38,7 +45,7 @@ export default function NavMenu({ counted }) {
             <Link to="sabordapizza/" onClick={() => handleTitle("null")} className="logo">
                 <img src={logo} alt="logo" />
             </Link>
-            <ul>
+            <ul className={isActived}>
                 <li>
                     <Link to="sabordapizza/" onClick={() => handleTitle("null")}>Home</Link>
                 </li>
@@ -113,6 +120,7 @@ export default function NavMenu({ counted }) {
                 </li>
             </ul>
             <h3 className="delivery">Delivery: (53) <span>3210-5679</span></h3>
+            <NavButton onActived={menuToogle} />
         </nav>
     )
 }

@@ -24,6 +24,9 @@
             @include mixins.large
                 padding-left: 50px 
 
+            @include mixins.mediun
+                width: 100px
+
             @include mixins.mobile
                 padding-left: 0 
 
@@ -41,6 +44,7 @@
             right: 50px
 
         @include mixins.mediun
+            display: none
             flex-direction: column
             left: calc(-50% + 70px)
             align-items: center
@@ -200,26 +204,6 @@
                         text-align: center
                         padding-top: 30px
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     .delivery
         position: absolute
         top: 5px
@@ -227,15 +211,12 @@
         font-size: .9em
         color: variables.$title-color
 
-        @include mixins.mediun
-            top: 50%
-
         @include mixins.large
             right: 50px
 
-        @include mixins.mobile
-            position: relative
-            right: 0
+        @include mixins.mediun
+            top: 50%
+            right: calc( 50% - 70px )
 
         span
             font-size: 1.4em
