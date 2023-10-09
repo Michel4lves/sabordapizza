@@ -1,0 +1,40 @@
+@use "../../variables"
+@use "../../_mixins"
+
+.hideAdded
+    position: fixed
+    top: -150px
+    right: 100px
+    width: 300px
+    height: 50px
+    background: variables.$secondary-color
+    @include mixins.flex-center
+    gap: 20px
+    padding: 15px
+    border: 2px solid variables.$primary-color
+    border-radius: 20px
+    transition: 0s
+    visibility: hidden
+    z-index: 100
+
+.successAdded
+    @extend .hideAdded
+    top: 120px
+    visibility: visible
+    transition: 1s
+
+    svg
+        color: variables.$title-color
+        width: 30px
+        height: 30px
+
+.successRemoved
+    @extend .hideAdded
+    top: 120px
+    visibility: visible
+    transition: 1s
+
+    svg
+        color: variables.$primary-color
+        width: 30px
+        height: 30px

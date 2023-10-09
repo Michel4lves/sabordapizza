@@ -8,7 +8,7 @@ import LinkButton from "../components/buttons/LinkButton"
 import "../sass/pages/Cart.sass"
 
 
-export default function Cart({ onAddMenuCount, onDiscount }) {
+export default function Cart({ onAddMenuCount, onDiscount, onAddedPizzaName, onRemovePizzaName }) {
 
     const [totalPrice, setTotalPrice] = useState(parseFloat(0.00).toFixed(2))
     const count = []
@@ -99,6 +99,8 @@ export default function Cart({ onAddMenuCount, onDiscount }) {
                                                     onUpdateTotalPrice={updateTotalPrice}
                                                     onUpdateQuantity={(newQuantity) => updateCartItemQuantity(index, newQuantity)}
                                                     onAddMenuCount={onAddMenuCount}
+                                                    onAddedPizzaName={onAddedPizzaName}
+                                                    onRemovePizzaName={onRemovePizzaName}
                                                 />
                                             </tr>
                                         ))

@@ -16,7 +16,7 @@ import pizza12 from "../img/pizza12.jpg"
 
 import "../sass/pages/cardapio.sass"
 
-export default function Cardapio({ onAddMenuCount }) {
+export default function Cardapio({ onAddMenuCount, onAddedPizzaName, onRemovePizzaName }) {
     return (
         <div>
             <Container customClass="center-container">
@@ -31,6 +31,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="62.90"
                         familyPrice="74.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza2}
@@ -41,6 +43,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="60.00"
                         familyPrice="72.00"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza3}
@@ -51,6 +55,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="60.00"
                         familyPrice="72.00"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza4}
@@ -61,6 +67,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="62.90"
                         familyPrice="74.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza5}
@@ -71,6 +79,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="62.90"
                         familyPrice="74.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza6}
@@ -81,6 +91,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="60.90"
                         familyPrice="72.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza7}
@@ -91,6 +103,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="62.90"
                         familyPrice="74.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza8}
@@ -101,6 +115,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="66.90"
                         familyPrice="77.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza9}
@@ -111,6 +127,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="61.00"
                         familyPrice="71.00"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza10}
@@ -121,6 +139,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="62.90"
                         familyPrice="74.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza11}
@@ -131,6 +151,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="60.00"
                         familyPrice="70.00"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                     <PizzaCard
                         image={pizza12}
@@ -141,6 +163,8 @@ export default function Cardapio({ onAddMenuCount }) {
                         largePrice="63.90"
                         familyPrice="76.90"
                         onAddMenuCount={onAddMenuCount}
+                        onAddedPizzaName={onAddedPizzaName}
+                        onRemovePizzaName={onRemovePizzaName}
                     />
                 </section>
             </Container>

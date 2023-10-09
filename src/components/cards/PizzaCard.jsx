@@ -3,7 +3,16 @@ import "../../sass/components/cards/PizzaCard.sass"
 import BuyButton from "../buttons/BuyButton"
 import AddCountButton from "../buttons/AddCountButton";
 
-const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, largePrice, familyPrice, onAddMenuCount }) => {
+const PizzaCard = ({ image, 
+                    pizzaName, 
+                    pizzaDescription, 
+                    alert, 
+                    mediumPrice, 
+                    largePrice, 
+                    familyPrice, 
+                    onAddMenuCount, 
+                    onAddedPizzaName,
+                    onRemovePizzaName }) => {
 
     const [selectedSize, setSelectedSize] = useState('medium')
     const [add, setAdd] = useState("Adicionar ao pedido")
@@ -38,6 +47,7 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
             sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
             //
             onAddMenuCount(1)
+            onAddedPizzaName(pizzaName)
         }, 1000);
     }
 
@@ -49,6 +59,7 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
             setCount((count) => count + 1)
             localPizzaCart.products[index].quantity += 1
             onAddMenuCount(0)
+            onAddedPizzaName(pizzaName)
         } else {
             setCount((count) => count + 1)
             localPizzaCart.products.push(
@@ -63,6 +74,7 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
         }
         sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
         onAddMenuCount(1)
+        onAddedPizzaName(pizzaName)
     }
 
 
@@ -78,12 +90,14 @@ const PizzaCard = ({ image, pizzaName, pizzaDescription, alert, mediumPrice, lar
                     localPizzaCart.products[index].quantity -= 1
                     sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
                     onAddMenuCount(-1)
+                    onRemovePizzaName(pizzaName)
                 }
                 if (quantity === 1) {
                     localPizzaCart.products.splice(index, 1)
                     sessionStorage.setItem('pizzaCart', JSON.stringify(localPizzaCart))
                     if (index !== -1) {
                         onAddMenuCount(0)
+                        onRemovePizzaName(pizzaName)
                     }
                 }
             }

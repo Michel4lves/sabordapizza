@@ -12,9 +12,11 @@ import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./config/ScrollToTop";
-import popAdded from "./components/popups/popAdded"
+import PopAdded from "./components/popups/PopAdded";
+import PopRemove from "./components/popups/PopRemove";
 
 import { useState } from "react";
+
 
 export default function App() {
 
@@ -30,6 +32,9 @@ export default function App() {
     const productsCount = localPizzaCart.reduce((accumulator, item) => accumulator + item.quantity, 0)
     const [count, setCount] = useState(productsCount)
     const [discounted, setDiscounted] = useState(0.00)
+    const [pizzaName, setPizzaName] = useState()
+    const [dynamicClass, setDynamicClass] = useState("hideAdded")
+    const [dynamicClassRemove, setDynamicClassRemove] = useState("hideAdded")
 
 
     function addMenuCount(unit) {
@@ -41,22 +46,39 @@ export default function App() {
         setDiscounted(discount)
     }
 
+    function AddedPizzaName(pizzaName) {
+        setPizzaName(pizzaName)
+        setDynamicClass("successAdded")
+        setTimeout(() => {
+            setDynamicClass("hideAdded")
+        }, 5000)
+    }
+
+    function RemovedPizzaName(pizzaName) {
+        setPizzaName(pizzaName)
+        setDynamicClassRemove("successRemoved")
+        setTimeout(() => {
+            setDynamicClassRemove("hideAdded")
+        }, 5000)
+    }
+
 
     return (
         <div className="App">
             <BrowserRouter>
                 <ScrollToTop />
-                <popAdded />
+                <PopAdded pizzaName={pizzaName} dynamicClass={dynamicClass} />
+                <PopRemove pizzaName={pizzaName} dynamicClass={dynamicClassRemove} />
                 <header className="header">
                     <NavMenu counted={count} />
                 </header>
                 <Container>
                     <Routes>
                         <Route path='sabordapizza/' element={<Home />} />
-                        <Route path='sabordapizza/cardapio' element={<Cardapio onAddMenuCount={addMenuCount} />} />
+                        <Route path='sabordapizza/cardapio' element={<Cardapio onAddMenuCount={addMenuCount} onAddedPizzaName={AddedPizzaName} onRemovePizzaName={RemovedPizzaName} />} />
                         <Route path='sabordapizza/delivery' element={<Delivery />} />
                         <Route path='sabordapizza/contact' element={<Contact />} />
-                        <Route path='sabordapizza/cart' element={<Cart onAddMenuCount={addMenuCount} onDiscount={addDiscount} />} />
+                        <Route path='sabordapizza/cart' element={<Cart onAddMenuCount={addMenuCount} onDiscount={addDiscount} onAddedPizzaName={AddedPizzaName} onRemovePizzaName={RemovedPizzaName} />} />
                         <Route path='sabordapizza/checkout' element={<Checkout discount={discounted} />} />
                         <Route path='sabordapizza/page404' element={<Page404 />} />
                     </Routes>
