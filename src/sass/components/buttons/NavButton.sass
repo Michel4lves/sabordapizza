@@ -1,9 +1,8 @@
 @use "../../variables"
 @use "../../_mixins"
 
-.navbutton
+.nav-button
     position: relative
-    right: 50px
     width: 50px
     height: 50px
     border: 1px solid variables.$secondary-color
@@ -12,8 +11,6 @@
     justify-content: center
     align-items: flex-start
     padding: 5px
-    cursor: pointer
-    display: none
 
     &::before
         content: "="
@@ -25,8 +22,12 @@
         font-size: 4em
         text-align: center
 
-    @include mixins.mediun
-        display: flex
+    &.active
+
+        &::before
+            content: "x"
+            top: 12px
+            font-size: 3em
 
     svg
         position: relative

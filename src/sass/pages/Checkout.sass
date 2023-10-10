@@ -7,19 +7,26 @@
     margin-bottom: 30px
     color: variables.$title-color
 
-    @include mixins.mediun
-        padding-top: 180px
-
-    @include mixins.mobile
-        padding-top: 0
-
 .checkoutBox
     @include mixins.flex-center
     align-items: flex-start
     gap: 30px
 
+    @include mixins.mediun
+        flex-direction: column
+        align-items: center
+
+    // @include mixins.mobile
+    //     margin-left: 10px
+
     .checkout-form
         width: 50%
+
+        @include mixins.mediun
+            width: 80%
+
+        @include mixins.mobile
+            width: 90%
 
     .checkoutDataBx
         border: 3px solid variables.$primary-color
@@ -28,6 +35,11 @@
         padding: 10px
         border-radius: 10px
         margin-left: 50px
+
+        @include mixins.mobile
+            width: 320px
+            margin-left: 0px
+
 
         .orderBx, .subTotalBx, .totalBx, .discountBx
             @include mixins.flex-center

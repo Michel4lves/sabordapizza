@@ -18,14 +18,15 @@ export default function NavMenu({ counted }) {
     const location = useLocation()
     const [title, setTitle] = useState("null")
 
-    const [isActived, setIsActived] = useState()
+    const [isActive, setIsActive] = useState(false)
 
     const handleTitle = (titleId) => {
         setTitle(titleId)
+        setIsActive(!isActive)
     }
 
-    function menuToogle(isActived) {
-        setIsActived(isActived)
+    function menuToggle() {
+        setIsActive(!isActive)
     }
 
 
@@ -45,7 +46,7 @@ export default function NavMenu({ counted }) {
             <Link to="sabordapizza/" onClick={() => handleTitle("null")} className="logo">
                 <img src={logo} alt="logo" />
             </Link>
-            <ul className={isActived}>
+            <ul className={isActive ? "active" : ""}>
                 <li>
                     <Link to="sabordapizza/" onClick={() => handleTitle("null")}>Home</Link>
                 </li>
@@ -120,7 +121,9 @@ export default function NavMenu({ counted }) {
                 </li>
             </ul>
             <h3 className="delivery">Delivery: (53) <span>3210-5679</span></h3>
-            <NavButton onActived={menuToogle} />
+            <div className="toggle-button" onClick={menuToggle}>
+                <NavButton active={isActive ? "active" : ""} />
+            </div>
         </nav>
     )
 }

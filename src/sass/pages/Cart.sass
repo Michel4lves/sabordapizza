@@ -7,9 +7,6 @@
     margin-bottom: 30px
     color: variables.$title-color
 
-    @include mixins.mediun
-        padding-top: 180px
-
     @include mixins.mobile
         padding-top: 0
 
@@ -19,6 +16,17 @@
 .cartBx
     @include mixins.flex-center
     align-items: flex-start
+
+    @include mixins.large
+        padding: 0 30px 
+
+    @include mixins.mediun
+        flex-direction: column
+        align-items: center
+        gap: 50px
+
+    @include mixins.mobile
+        padding: 0
 
     .listBx
         @include mixins.flex-center
@@ -45,6 +53,10 @@
         padding: 10px
         border-radius: 10px
         margin-left: 50px
+
+        @include mixins.mobile
+            width: 330px
+            margin: 0
 
         details
             border-bottom: 1px solid variables.$title-color

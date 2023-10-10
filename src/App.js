@@ -12,7 +12,7 @@ import NavMenu from "./components/navbar/NavMenu";
 import Container from "./components/container/Container";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./config/ScrollToTop";
-import PopAdded from "./components/popups/popAdded";
+import PopAdded from "./components/popups/PopAdded";
 import PopRemove from "./components/popups/PopRemove";
 
 import { useState } from "react";

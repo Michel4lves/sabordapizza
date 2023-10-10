@@ -7,13 +7,6 @@
     margin-bottom: 30px
     color: variables.$title-color
 
-    @include mixins.mediun
-        padding-top: 160px
-
-    @include mixins.mobile
-        padding-top: 0
-
-
 .contacts
     height: 400px
     @include mixins.flex-center
@@ -29,6 +22,9 @@
         @include mixins.flex-center
         flex-direction: column
         gap: 20px
+
+        @include mixins.mobile
+            width: 80%
 
         img
             width: 150px
@@ -61,6 +57,9 @@
         width: 60%
         height: 100%
         padding: 20px
+
+        @include mixins.mobile
+            width: 80%
 
         p
             font-size: 1.2em

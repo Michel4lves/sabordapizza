@@ -1,6 +1,12 @@
 @use "../../variables"
 @use "../../mixins"
 
+td
+    &:nth-child(2)
+
+        @include mixins.mobile
+            display: none
+
 .product-box
     @include mixins.flex-center
     justify-content: flex-start
@@ -11,13 +17,18 @@
         border: 5px solid variables.$primary-color
         border-radius: 50%
 
+        @include mixins.mobile
+            display: none
+
     .name-box
-        // height: 52px
         display: flex
         justify-content: flex-start
         flex-direction: column
         gap: 10px
         line-height: 1.3em
+
+        @include mixins.mobile
+            width: 120px
 
         .pizza-name
             color: variables.$title-color
@@ -26,7 +37,5 @@
         .pizza-size
             color: variables.$text-color
 
-.cart-price
-    color: variables.$text-color
-
-
+    .cart-price
+        color: variables.$text-color
